@@ -1,0 +1,14 @@
+<form ><fieldset style="width:500px" disabled="disabled" style="color: #000;">
+			<legend style="color: #000;"><font color="black">Personal Details</font></legend>
+			<?php
+            if( !empty($userdata) ){
+                			echo"
+                		<table class='pdtable'>
+                			<tr><td width = '400px' ><label>Name</label></td><td><input type='text' name='fname' placeholder='{$userdata['Name']}'></td></tr>
+                			<tr><td><label>Gender</label></td><td><input type='text' name='fname' placeholder='{$userdata['Gender']}'></td></tr>
+                			<tr><td><label>Driver's License</label></td><td><input type='text' name='fname' placeholder='{$userdata['Licence_No']}'></td></tr>
+                            <tr><td><label>E-mail</label></td><td><input type='text' name='fname' placeholder='{$userdata['Email']}'></td></tr>
+                			<tr><td><label>Contact No.</label></td><td><input type='text' name='fname' placeholder='{$userdata['Contact_No']}'></td></tr>
+
+                            
+                		</table>";}
