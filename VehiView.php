@@ -95,73 +95,7 @@ CSS files
 <br>
 
 
-<div class="layout_padding">
 
-    <section class="layout_padding story_section ">
-    <div class="container-fluid">
-        <div class="row">
-        <!-- <div class=" col-md-6">
-            <div>
-            <img class="img-fluid" src="images/security.jpg" alt="" />
-            </div> -->
-        </div>
-        <div class="col-lg-5 offset-lg-5">
-        <div class="box">
-            <br>
-            <br>
-		<p><img src="assets/img2/avatar.jpg" style="width: 150px; border-radius:75px"></p>
-        <br>
-		<div id="ho2"> <h2 >My Profile</h2></div>
-		<form ><fieldset style="width:500px" disabled="disabled" style="color: #000;">
-			<br>
-                                </div>
-        </div>
-        <div class="col-lg-8 offset-lg-4">
-        
-			<?php
-            if( !empty($userdata) ){
-                			echo"
-                		<table class='pdtable'>
-                			<tr height='40px'><td width = '280px' ><label><h5>Name</h5></label></td><td><input type='text' name='fname' placeholder='{$userdata['Name']}'></td></tr>
-                			<tr height='40px'><td><label><h5>Gender</h5></label></td><td><input type='text' name='fname' placeholder='{$userdata['Gender']}'></td></tr>
-                			<tr height='40px'><td><label><h5>Driver's License</h5></label></td><td><input type='text' name='fname' placeholder='{$userdata['Licence_No']}'></td></tr>
-                            <tr height='40px'><td><label><h5>E-mail</h5></label></td><td><input type='text' name='fname' placeholder='{$userdata['Email']}'></td></tr>
-                			<tr height='40px'><td><label><h5>Contact No.</h5></label></td><td><input type='text' name='fname' placeholder='{$userdata['Contact_No']}'></td></tr>
-
-                            
-                		</table>";}
-
-        ?>
-        <br>
-        <br>
-        </div>
-        
-
-    <div class="row">
-            <div class="col-lg-4 offset-lg-3">
-                <div class="trainer-item">
-                    <div >
-                    <div class="main-button"><a href="VehiView.php">View Vehicle Details</a></div>
-                    </div>
-                    
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="trainer-item">
-                    <div >
-                    <div class="main-button"><a href="VehiEdit.php">Edit Vehicle Details</a></div>
-                    </div>
-                    
-                </div>
-            </div>
-
-        </div>
-        <br>
-        <br>
-
-    </section>
-
-</div>
 
     
     <!-- ***** Footer Start ***** -->
@@ -169,7 +103,7 @@ CSS files
       <div class="container">
           <div class="row">
               <div class="col-lg-12">
-                  <p>Copyright &copy; 2020 Travel Life - Designed by <a rel="nofollow" href="Home.php" class="tm-text-link" >Travel Team</a></p>
+                  <p>Copyright &copy; 2022 Travel Life - Designed by <a rel="nofollow" href="Home.php" class="tm-text-link" >Travel Team</a></p>
 
                   
               </div>
