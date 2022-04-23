@@ -11,13 +11,13 @@
 
           
           
-          $Name = $_POST['Name'];
-          $email = $_POST['Email'];
-          $Con_No = $_POST['Con_no'];
-          $NIC = $_POST['NIC'];
-          $gender = $_POST['Gender'];
-          $License_no = $_POST['License_no'];        
-          $password=$_POST['password'];
+          $type = $_POST['Type'];
+          $make = $_POST['Make'];
+          $model = $_POST['Model'];
+          $vreg = $_POST['RegNo'];
+          $incom = $_POST['Incom'];
+          $inpn = $_POST['InPn'];        
+
           
 
 
@@ -177,7 +177,7 @@ CSS files
                                <h6> Vehicle Model:</h6>
                             </td>
                             <td>
-                                <input type="text" name="Model" placeholder=" Ex: Honet, Vezel, Leaf" required>
+                                <input type="text" name="Model" placeholder=" Ex: Hornet, Vezel, Leaf" required>
                             </td>
                         </tr>
         
@@ -213,7 +213,7 @@ CSS files
                                 <h6>Insurance Policy Number</h6>
                             </td>
                             <td>
-                                <input type="text" name="License_no" placeholder="" required>
+                                <input type="text" name="InPn" placeholder="" required>
                             </td>
                         </tr>	
                 
