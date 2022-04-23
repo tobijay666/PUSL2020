@@ -4,6 +4,7 @@
      include("connection.php");
      include("functions.php");
      $userdata=check_login($con);
+
 ?>
 
 <!DOCTYPE html>
@@ -33,6 +34,8 @@ CSS files
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css" />
     <!-- Custom styles for this template -->
     <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="assets/css/style1.css" rel="stylesheet" />
+
     <!-- responsive style -->
     <link href="assets/css/responsive.css" rel="stylesheet" />
 
@@ -89,13 +92,87 @@ CSS files
       </div>
   </header>
   <!-- ***** Header Area End ***** -->
-<br>
-<br>
-<br>
-<br>
 
 
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="section-heading">
+                    <h2>Vehicle <em>Details</em></h2>
+                    <img src="assets/Img2/line-dec.png" alt="">
+                    <p>Here's a list of all the vehicles you own. If You want to Change any detail click 'EDIT'.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+<nobr></nobr>
+<section class="ftco-section">
+		<div class="container" style="margin-top:-100px;">
+			
+			<div class="row">
+				<div class="col-md-12">
+					<div class="table-wrap">
+						<table class="table">
+						  <thead class="thead-dark">
+						    <tr>
+						      <th>Registration No.</th>
+						      <th>Make</th>
+						      <th>Model</th>
+						      <th>Type</th>
+						      <th>Insurance Company</th>
+						      <th>Insurance Policy No</th>
 
+						      <th>&nbsp;</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+                              <?php
+                                $Did = $userdata['Driver_Id'];
+                                $sqry="SELECT * FROM vehicle where Driver_Id = $Did";
+
+                                if(!($squ= mysqli_query($con,$sqry)))
+                                {
+                                    echo"Data retrival failed";
+                                }
+                                while( $row = mysqli_fetch_assoc($squ) )
+                                {
+                                echo" 
+                                <tr class='alert' role='alert'>
+                                <th scope='row'>{$row['Registration_No']}</th>
+                                <td>{$row['Make']}</td>
+                                <td>{$row['Model']}</td>
+                                <td>{$row['Type']}</td>
+                                <td>{$row['Insurance_Company']}</td>
+                                <td>{$row['Insurance_Policy_No']}</td>
+                                
+  
+                                <td width='100px'>
+                                    <!-- <a href='#' class='close' data-dismiss='alert' aria-label='Close'>
+                                  <span aria-hidden='true'><i class='fa fa-close'></i></span> -->
+  
+                                  <div class='trainer-item'>
+                                      <div >
+                                          <div class='main-button'><a href='VehiEdit.php'>Edit</a></div>
+                                      </div>
+                                      
+                                  </div>
+  
+                                
+                              </td>
+                              </tr>";
+                                }
+                                
+
+                              ?>
+						    
+						    
+						  </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
     
     <!-- ***** Footer Start ***** -->
