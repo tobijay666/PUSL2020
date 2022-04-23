@@ -16,21 +16,25 @@
           $model = $_POST['Model'];
           $vreg = $_POST['RegNo'];
           $incom = $_POST['Incom'];
-          $inpn = $_POST['InPn'];        
+          $inpn = $_POST['InPn'];
+          $did  = $_SESSION['D_Id']; 
+          $tdate = date("y/m/d");   
 
           
 
 
 
-                          if(!empty($Name) && !empty($email)&& !empty($NIC)&& !empty($gender)&& !empty($License_no)&& !empty($Con_No) )
+                          if(!empty($model) && !empty($vreg)&& !empty($inpn) )
                           {
 
                               //save to the database
-                              $query = "insert into driver (Password,Licence_No,Name,Contact_No,Email,Gender) values ('$password','$License_no','$Name','$Con_No','$email','$gender' )";
+                              $query = "insert into vehicle 
+                                (Registration_No,Insurance_Company,Insurance_Policy_No,Type,Make,Model,Driver_Id,Date)
+                                    values ('$vreg','$incom','$inpn','$type','$make','$model','$did','$tdate' )";
 
                               mysqli_query($con, $query);
 
-                              header("Location: Login.php");
+                              header("Location: Profile.php");
                               die;
                           }else
                           {
@@ -103,7 +107,7 @@ CSS files
                                 }
                                 else{echo"
                                     <li class='scroll-to-section'><a href='#rep' >Report</a></li>
-                                    <li class='scroll-to-section'><a href='#pro' >Profile</a></li>
+                                    <li class='scroll-to-section'><a href='profile.php' >Profile</a></li>
                                     <li class='main-button'><a href='logout.php'>Log Out</a></li>";}
                                 ?>
                             
