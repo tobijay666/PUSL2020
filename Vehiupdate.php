@@ -5,28 +5,33 @@
      include("functions.php");
      $userdata=check_login($con);
 
+
      if($_SERVER['REQUEST_METHOD'] == "POST")
-     {
-        $incom = $_POST['InCom'];
-        $incpol = $_POST['InCoPol'];
-        $vid = $_POST['Vid'];
+        {
+            $incom = $_POST['InCom'];
+            $incpol = $_POST['InCoPol'];
+            $vid = $_POST['Vid'];
 
-        if(!empty($incom) && !empty($incopol))
-                {
+            if(!empty($incom) && !empty($incpol))
+                    {
 
-                    //save to the database
-                    $query = "UPDATE vehicle SET Insurance_Company = '$incom', Insurance_Policy_No = '$incpol' WHERE  Vehicle_Id = '$vid' ";
+                        //save to the database
+                        $query = "UPDATE vehicle SET Insurance_Company = '$incom', Insurance_Policy_No = '$incpol' WHERE  Vehicle_Id = $vid ";
 
-                    mysqli_query($con, $query);
+                        mysqli_query($con, $query);
 
-                    header("Location: VehiView.php");
-                    die;
-                }else
-                {
-                    echo "Please enter some valid information!";
-                    
-                }
-        }
+                        header("Location: VehiView.php");
+                        die;
+                    }
+                    else
+                    {
+                        
+                        echo "Error updating record: " . mysqli_error($con);
+                        
+                    }
+            }
+        
+     
 
 
 ?>
@@ -166,9 +171,20 @@ CSS files
                                 <td>{$row['Make']}</td>
                                 <td>{$row['Model']}</td>
                                 <td>{$row['Type']}</td>
-                                <form method='POST'>
-                                <td><input type='text' name='InCom' Value='{$row['Insurance_Company']}'></td>
-                                <td><input type='text' name='InCoPol' value='{$row['Insurance_Policy_No']}'></td>
+                                <form method='post' action='Vehiupdate.php'>
+                                <td>
+                                <select name='InCom' id='InCom'>
+                                <option value=''>{$row['Insurance_Company']}</option>
+                                <option value='Sri_Lanka_Insurance'>Sri Lanka Insurance</option>
+                                <option value='Janashakthi_Insurance'>Janashakthi Insurance</option>
+                                <option value='Ceylinco'>Ceylinco</option>
+                                <option value='Assetline_Leasing'>Assetline Leasing</option>
+                                <option value='Peoples_Insurance'>People's Insurance PLC</option>
+                                <option value='Vallible_Finance'>Vallible_Finance</option>
+
+
+                              </select></td>
+                                <td><input type='text' name='InCoPol' Placeholder='{$row['Insurance_Policy_No']}'></td>
                                 
   
                                 <td width='100px'>
@@ -187,8 +203,9 @@ CSS files
                                 
                               </td>
                               </form>
-                              </tr>";
-                                }
+                              </tr>"
+                              ;}
+                              
                                 
 
                               ?>
@@ -200,6 +217,17 @@ CSS files
 				</div>
 			</div>
 		</div>
+        <br>
+        <br>
+
+            <div class="col-lg-2 offset-lg-9">
+                <div class="trainer-item">
+                    <div >
+                    <div class="main-button"><a href="Vehiedit.php">Go Back</a></div>
+                    </div>
+                    
+                </div>
+            </div>
 	</section>
 
     

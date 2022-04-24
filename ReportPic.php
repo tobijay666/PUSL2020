@@ -24,18 +24,34 @@
 
                               $qry2 = "SELECT * FROM report where Driver_Id = '$did' AND Date_of_Acc = '$doa' ";
                               $result2 = mysqli_query($con,$qry2);
+                              
+
+                              $qry3 = "SELECT * FROM vehicle where Driver_Id = '$did' AND Registration_No = '$vreg' ";
+                              $result3 = mysqli_query($con,$qry3);
+
                               if($result2 && mysqli_num_rows($result2) > 0)
                                 {
 
                                     $Report_data = mysqli_fetch_assoc($result2);
                                     $repID = $Report_data['Rep_Id'];
                                 }
-                                $query3 = "insert into veh_rep (Vehicle_Id,Rep_Id) values ('$vreg','$repID' )";
+                                if($result3 && mysqli_num_rows($result3) > 0)
+                                {
+
+                                    $Report_data2 = mysqli_fetch_assoc($result3);
+                                    $vID = $Report_data2['Vehicle_Id'];
+                                }
+
+                                $query3 = "insert into veh_rep (Vehicle_Id,Rep_Id) values ('$vID','$repID' )";
+                                
                                 mysqli_query($con, $query3);
 
                               
-
-                              header("Location: ReportPic.php");
+                                echo '<script language="javascript">';
+                                echo 'confirm("Reported Successfully! ")';
+                                echo '</script>';
+                                
+                              header("Location: Home.php");
                               die;
                             }
                           else

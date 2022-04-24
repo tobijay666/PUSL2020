@@ -221,15 +221,19 @@ CSS files
                             </td>
                         </tr>	
                 
-                        
-                        
+
                
                         <tr height="60px">
                             <td colspan=2 align="center">
-                                <div class="main-button scroll-to-section">
-                                <input type="Submit" value="Add Vehicle">
-                                <!--  -->
-                                </div>
+                                <br>
+                                
+                                    <div class="main-button scroll-to-section">
+                                    <input type="Submit" value="Add Vehicle">
+                                    <!--  -->
+                                    </div>
+                                
+                                
+                                
                 
                             </td>
         

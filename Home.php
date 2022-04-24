@@ -62,7 +62,7 @@ CSS files
                             
                             <?php
                                 if(isset($_SESSION['D_Id'])){echo"
-                                    <li class='scroll-to-section'><a href='#rep' >Report</a></li>
+                                    <li class='scroll-to-section'><a href='ReportMain.php' >Report</a></li>
                                     <li class='scroll-to-section'><a href='profile.php' >Profile</a></li>
                                     <li class='main-button'><a href='logout.php'>Log Out</a></li>
                                     ";

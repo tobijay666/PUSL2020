@@ -76,7 +76,7 @@ CSS files
                                     <li class='main-button'><a href='Login.php'>Log In</a></li>";
                                 }
                                 else{echo"
-                                    <li class='scroll-to-section'><a href='#rep' >Report</a></li>
+                                    <li class='scroll-to-section'><a href='ReportMain.php' >Report</a></li>
                                     <li class='scroll-to-section'><a href='profile.php' class='active'>Profile</a></li>
                                     <li class='main-button'><a href='logout.php'>Log Out</a></li>";}
                                 ?>
@@ -172,6 +172,16 @@ CSS files
 				</div>
 			</div>
 		</div>
+        <br>
+        <br>
+            <div class="col-lg-2 offset-lg-9">
+                <div class="trainer-item">
+                    <div >
+                    <div class="main-button"><a href="Vehiedit.php">Go Back</a></div>
+                    </div>
+                    
+                </div>
+            
 	</section>
 
     
