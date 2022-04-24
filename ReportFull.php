@@ -203,7 +203,7 @@ CSS files
                                     <h2>Report Details</h2>
                                     <tr height='40px'><td width = '280px' ><label><h5>ID</h5></label></td><td><input type='text' name='fname' value='{$row['Rep_Id']}'></td></tr>
                                     <tr height='40px'><td><label><h5>Cause</h5></label></td><td><input type='text' name='fname' placeholder='{$row['Cause']}'></td></tr>
-                                    <tr height='40px'><td><label><h5>Details</h5></label></td><td><input type='text' name='fname' placeholder='{$row['Details']}'></td></tr>
+                                    <tr height='40px'><td><label><h5>Details</h5></label></td><td><textarea  name='tex' rows='2' cols='30' placeholder='{$row['Details']}'></textarea></td></tr>
                                     <tr height='40px'><td><label><h5>Date</h5></label></td><td><input type='text' name='fname' placeholder='{$row['Date_of_Acc']}'></td></tr>
                                     <tr height='40px'><td><label><h5>Time</h5></label></td><td><input type='text' name='fname' placeholder='{$row['Time_of_Acc']}'></td></tr>
 
