@@ -56,6 +56,7 @@
                           {
                               echo "Please enter some valid information!";
                               
+                              
                           }
 
                         
@@ -66,7 +67,8 @@
                           $bytes = 1024;
                           $KB = 1024;
                           $totalBytes = $bytes * $KB;
-                          $UploadFolder = "UploadFolder";
+                          mkdir("upload/$repID");
+                          $UploadFolder = "upload/$repID";
                            
                           $counter = 0;
                            
@@ -100,7 +102,15 @@
                               }
                                
                               if($UploadOk == true){
-                                  move_uploaded_file($temp,$UploadFolder."/".$name);
+                                    move_uploaded_file($temp,$UploadFolder."/".$name);
+                                    $insert = "INSERT into rep_pic(rep_id,file_name) values($repID,'$name')";
+                                    if(mysqli_query($con, $insert)){
+                                        ;
+                                    }
+                                    else{
+                                      echo 'Error: '.mysqli_error($con);
+                                    }
+                                  
                                   array_push($uploadedFiles, $name);
                               }
                           }
@@ -115,24 +125,13 @@
                                       echo "<li>".$error."</li>";
                                   }
                                   echo "</ul><br/>";
-                              }
-                               
-                              if(count($uploadedFiles)>0){
-                                  echo "<b>Uploaded Files:</b>";
-                                  echo "<br/><ul>";
-                                  foreach($uploadedFiles as $fileName)
-                                  {
-                                      echo "<li>".$fileName."</li>";
-                                  }
-                                  echo "</ul><br/>";
-                                   
-                                  echo count($uploadedFiles)." file(s) are successfully uploaded.";
-                              }                               
+                              }                                                        
                           }
                           else{
                               echo "Please, Select file(s) to upload.";
                           }
-                        
+                          header("Location: Home.php");
+                          die;
                         
                       }
 ?>
