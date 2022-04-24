@@ -13,6 +13,11 @@
                 echo"Data retrival failed";
 
             }
+            $qry2 ="SELECT * FROM rep_pic where Rep_Id = $rid";
+            if(!($squ2= mysqli_query($con,$qry2))){
+                echo"Data retrival failed";
+
+            }
             
         }
      }
@@ -110,10 +115,17 @@ CSS files
 <br>
 <br>
 <br>
+
   <div class="w3-content" style="max-width:800px">
-    <img class="mySlides" src="assets/Img2/Sl21 Ps.jpg" style="width:100%">
-    <img class="mySlides" src="assets/Img2/Sl16Ps.jpg" style="width:100%">
-    <img class="mySlides" src="assets/Img2/Sl19Ps.jpg" style="width:100%">
+  <h2>Photos of the Accident:</h2>
+    <!-- <img class="mySlides" src="assets/Img2/Sl21 Ps.jpg" style="width:100%">
+    <img class="mySlides" src="assets/Img2/Sl16Ps.jpg" style="width:100%"> -->
+    <?php
+     while( $row2 = mysqli_fetch_assoc($squ2) ){
+         $src = "upload/{$row2['rep_id']}/{$row2['file_name']}";
+        echo "<img class='mySlides' src='$src' style='width:100%'>";
+     }
+    ?>
   </div>
   
   <div class="w3-center">
