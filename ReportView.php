@@ -115,13 +115,15 @@ CSS files
 						<table class="table">
 						  <thead class="thead-dark">
 						    <tr>
-						      <th>Report ID</th>
-						      <th>Cause</th>
-						      <th>Details</th>
-						      <th>Date</th>
+						      <th width='100px'>Report ID</th>
+						      <th width='150px'>Cause</th>
+						      <th width='200px'>Details</th>
+						      <th width='200px'>Date</th>
 						      <th>Police Status</th>
                   <th>Insurance Status</th>
 						      <th>RDA Status</th>
+						      <th>&nbsp;</th>
+
 						    </tr>
 						  </thead>
 						  <tbody>
@@ -153,7 +155,19 @@ CSS files
                                 <td>$pid</td>
                                 <td>$inid</td>
                                 <td>$rdaid</td>
-
+                                <td width='100px'>
+                                    <!-- <a href='#' class='close' data-dismiss='alert' aria-label='Close'>
+                                  <span aria-hidden='true'><i class='fa fa-close'></i></span> -->
+  
+                                  <div class='trainer-item'>
+                                      <div >
+                                          <div class='main-button'><a href='ReportFull.php'>See More</a></div>
+                                      </div>
+                                      
+                                  </div>
+  
+                                
+                              </td>
                                 
   
                                 

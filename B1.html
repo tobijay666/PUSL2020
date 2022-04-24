@@ -1,72 +1,64 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <!-- Basic -->
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <!-- Mobile Metas -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <!-- Site Metas -->
-  <meta name="keywords" content="" />
-  <meta name="description" content="" />
-  <meta name="author" content="" />
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
-  <title>Royal</title>
-
-
-
-  <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css" />
-
-
-  <!-- Custom styles for this template -->
-  <link href="assets/css/style.css" rel="stylesheet" />
-  <!-- responsive style -->
-  <link href="assets/css/responsive.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="layout_padding">
 
-        <section class="layout_padding story_section ">
-          <div class="container-fluid">
-            <div class="row">
-              <!-- <div class=" col-md-6">
-                <div>
-                  <img class="img-fluid" src="images/security.jpg" alt="" />
-                </div> -->
-              </div>
-              <div class=" col-md-6">
-                <div class="story_detail">
-                  <h3>
-                    Our
-                  </h3>
-                  <h2>
-                    Success Stories
-                  </h2>
-                  <p>
-                    It is a long established fact that a reader will be distracted by the readable content of a page when
-                    looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution
-                    of
-                    letters, as opposed to using 'Content here, content here', making it look like readable English. Many
-                    desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a
-                    search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have
-                    evolved
-                    over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-                  </p>
-                  <div class="story_detail-btn">
-                    <a href="">
-                      <span>
-                        Read More
-                      </span>
-                      <img src="images/arrow-black.png" alt="" class="ml-2" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
+
+  <div class="w3-container">
+    <h2>Slideshow Indicators</h2>
+    <p>An example of using buttons to indicate how many slides there are in the slideshow, and which slide the user is currently viewing.</p>
+  </div>
+  
+  <div class="w3-content" style="max-width:800px">
+    <img class="mySlides" src="img_nature_wide.jpg" style="width:100%">
+    <img class="mySlides" src="img_snow_wide.jpg" style="width:100%">
+    <img class="mySlides" src="img_mountains_wide.jpg" style="width:100%">
+  </div>
+  
+  <div class="w3-center">
+    <div class="w3-section">
+      <button class="w3-button w3-light-grey" onclick="plusDivs(-1)">❮ Prev</button>
+      <button class="w3-button w3-light-grey" onclick="plusDivs(1)">Next ❯</button>
+    </div>
+    <button class="w3-button demo" onclick="currentDiv(1)">1</button> 
+    <button class="w3-button demo" onclick="currentDiv(2)">2</button> 
+    <button class="w3-button demo" onclick="currentDiv(3)">3</button> 
+  </div>
+  
+  <script>
+  var slideIndex = 1;
+  showDivs(slideIndex);
+  
+  function plusDivs(n) {
+    showDivs(slideIndex += n);
+  }
+  
+  function currentDiv(n) {
+    showDivs(slideIndex = n);
+  }
+  
+  function showDivs(n) {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("demo");
+    if (n > x.length) {slideIndex = 1}    
+    if (n < 1) {slideIndex = x.length}
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";  
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" w3-red", "");
+    }
+    x[slideIndex-1].style.display = "block";  
+    dots[slideIndex-1].className += " w3-red";
+  }
+  </script>
+
 </body>
 </html>
