@@ -4,6 +4,7 @@
      include("connection.php");
      include("functions.php");
      $userdata=check_login($con);
+
 ?>
 
 <!DOCTYPE html>
@@ -33,6 +34,8 @@ CSS files
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css" />
     <!-- Custom styles for this template -->
     <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="assets/css/style1.css" rel="stylesheet" />
+
     <!-- responsive style -->
     <link href="assets/css/responsive.css" rel="stylesheet" />
 
@@ -73,8 +76,8 @@ CSS files
                                     <li class='main-button'><a href='Login.php'>Log In</a></li>";
                                 }
                                 else{echo"
-                                    <li class='scroll-to-section'><a href='ReportMain.php' class='active' >Report</a></li>
-                                    <li class='scroll-to-section'><a href='profile.php' >Profile</a></li>
+                                    <li class='scroll-to-section'><a href='ReportMain.php' >Report</a></li>
+                                    <li class='scroll-to-section'><a href='profile.php' class='active'>Profile</a></li>
                                     <li class='main-button'><a href='logout.php'>Log Out</a></li>";}
                                 ?>
                             
@@ -90,47 +93,102 @@ CSS files
   </header>
   <!-- ***** Header Area End ***** -->
 
-  <section class="section" id="trainers">
+
     <div class="container">
         <div class="row">
             <div class="col-lg-6 offset-lg-3">
                 <div class="section-heading">
-                    <h2>Report <em>Now</em></h2>
+                    <h2>Report <em>Details</em></h2>
                     <img src="assets/Img2/line-dec.png" alt="">
-                    <p>Click 'Create New Report' to Report an Accident. Click 'View All Reports' to check out the status of the reports you have made.</p>
+                    <p>List of all of the Reports You Have Made and Their Status of Acceptance.</p>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-3 offset-lg-3">
+    </div>
+<nobr></nobr>
+<section class="ftco-section">
+		<div class="container" style="margin-top:-100px;">
+			
+			<div class="row">
+				<div class="col-md-12">
+					<div class="table-wrap">
+						<table class="table">
+						  <thead class="thead-dark">
+						    <tr>
+						      <th>Report ID</th>
+						      <th>Cause</th>
+						      <th>Details</th>
+						      <th>Date</th>
+						      <th>Police Status</th>
+                  <th>Insurance Status</th>
+						      <th>RDA Status</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+                              <?php
+                                $Did = $userdata['Driver_Id'];
+                                $sqry="SELECT * FROM report where Driver_Id = $Did";
+
+                                if(!($squ= mysqli_query($con,$sqry)))
+                                {
+                                    echo"Data retrival failed";
+                                }
+                                while( $row = mysqli_fetch_assoc($squ) )
+                                {
+                                  if(empty($row['P_Id'])){
+                                    $pid = "Pending...";
+                                  }
+                                  if(empty($row['In_Id'])){
+                                    $inid = "Pending...";
+                                  }
+                                  if(empty($row['RDA_Id'])){
+                                    $rdaid = "Pending...";
+                                  }
+                                echo" 
+                                <tr class='alert' role='alert'>
+                                <th scope='row'>{$row['Rep_Id']}</th>
+                                <td>{$row['Cause']}</td>
+                                <td>{$row['Details']}</td>
+                                <td>{$row['Date_of_Acc']}</td>
+                                <td>$pid</td>
+                                <td>$inid</td>
+                                <td>$rdaid</td>
+
+                                
+  
+                                
+                              </tr>";
+                                }
+                                
+
+                              ?>
+						    
+						    
+						  </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+        <br>
+        <br>
+            <div class="col-lg-2 offset-lg-9">
                 <div class="trainer-item">
                     <div >
-                    <div class="main-button"><a href="ReportView.php">View All Reports</a></div>
-                    </div>                    
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="trainer-item">
-                    <div >
-                    <div class="main-button"><a href="ReportNow.php">Create New Report</a></div>
+                    <div class="main-button"><a href="ReportMain.php">Go Back</a></div>
                     </div>
                     
                 </div>
-            </div>
+            
+	</section>
 
-        </div>
-        <br>
-        <br>
-        
-    </div>
-</section>
     
     <!-- ***** Footer Start ***** -->
     <footer>
       <div class="container">
           <div class="row">
               <div class="col-lg-12">
-                  <p>Copyright &copy; 2020 Travel Life - Designed by <a rel="nofollow" href="Home.php" class="tm-text-link" >Travel Team</a></p>
+                  <p>Copyright &copy; 2022 Travel Life - Designed by <a rel="nofollow" href="Home.php" class="tm-text-link" >Travel Team</a></p>
 
                   
               </div>

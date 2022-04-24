@@ -47,11 +47,9 @@
                                 mysqli_query($con, $query3);
 
                               
-                                echo '<script language="javascript">';
-                                echo 'confirm("Reported Successfully! ")';
-                                echo '</script>';
+                                header("Home.php");
                                 
-                              header("Location: Home.php");
+                              
                               die;
                             }
                           else
@@ -59,6 +57,35 @@
                               echo "Please enter some valid information!";
                               
                           }
+
+                        if(isset($_POST['submit'])){
+
+                            $filename = $_FILES['image']['name'];
+                            
+                            // Select file type
+                            $imageFileType = strtolower(pathinfo($filename,PATHINFO_EXTENSION));
+                            
+                            // valid file extensions
+                            $extensions_arr = array("jpg","jpeg","png","gif");
+                         
+                            // Check extension
+                            if( in_array($imageFileType,$extensions_arr) ){
+                         
+                            // Upload files and store in database
+                            if(move_uploaded_file($_FILES["image"]["tmp_name"],'upload/'.$filename)){
+                                // Image db insert sql
+                                $insert = "INSERT into image(file_name,uploaded_on,status) values('$filename',now(),1)";
+                                if(mysqli_query($conn, $insert)){
+                                  echo 'Data inserted successfully';
+                                }
+                                else{
+                                  echo 'Error: '.mysqli_error($conn);
+                                }
+                            }else{
+                                echo 'Error in uploading file - '.$_FILES['image']['name'].'<br/>';
+                            }
+                            }
+                        } 
                       }
 ?>
 
@@ -153,7 +180,7 @@ CSS files
 
 
 
-                    <form method = "post">
+                    <form method = "post" enctype="multipart/form-data">
                     <table border=0>
                       
                         <tr height="60px">
@@ -162,6 +189,9 @@ CSS files
                             </td>
                             <td width="600px">
                                 <input type="text" name="VReg" placeholder="Enter Vehicle Reg. No" required>
+                            </td>
+                            <td>
+                                <input type="file" name="uploadfile" value="">
                             </td>
                         </tr>
         
