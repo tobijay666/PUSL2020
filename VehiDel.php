@@ -14,7 +14,7 @@
             if(!empty($vid) )
                     {
 
-                        //save to the database
+                        //DELETE From the database
                         $query = "DELETE FROM vehicle WHERE  Vehicle_Id = $vid ";
 
                         mysqli_query($con, $query);

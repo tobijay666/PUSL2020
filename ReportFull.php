@@ -4,6 +4,18 @@
      include("connection.php");
      include("functions.php");
      $userdata=check_login($con);
+
+     if($_SERVER['REQUEST_METHOD'] == "POST"){
+         $rid = $_POST['rid'];
+        if(!empty($rid)){
+            $qry ="SELECT * FROM report where Rep_Id = $rid";
+            if(!($squ= mysqli_query($con,$qry))){
+                echo"Data retrival failed";
+
+            }
+            
+        }
+     }
 ?>
 
 <!DOCTYPE html>
@@ -109,9 +121,7 @@ CSS files
     <button class="w3-button w3-light-grey" onclick="plusDivs(-1)">❮ Prev</button>
     <button class="w3-button w3-light-grey" onclick="plusDivs(1)">Next ❯</button>
   </div>
-  <button class="w3-button demo" onclick="currentDiv(1)">1</button> 
-  <button class="w3-button demo" onclick="currentDiv(2)">2</button> 
-  <button class="w3-button demo" onclick="currentDiv(3)">3</button> 
+
   </div>
   
   <script>
@@ -142,6 +152,81 @@ CSS files
     dots[slideIndex-1].className += " w3-red";
   }
   </script>
+
+<div class="layout_padding">
+
+    <section class="layout_padding story_section ">
+    <div class="container-fluid">
+        <div class="row">
+        <!-- <div class=" col-md-6">
+            <div>
+            <img class="img-fluid" src="images/security.jpg" alt="" />
+            </div> -->
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-lg-5 offset-lg-1">
+                <form ><fieldset  disabled="disabled" style="color: #000;">
+
+                
+                    <?php
+                    if( !empty($userdata) ){
+                                    echo"
+                                <table class='pdtable'>
+                                    <h2>Driver Details</h2>
+                                    <tr height='40px'><td width = '280px' ><label><h5>Name</h5></label></td><td><input type='text' name='fname' value='{$userdata['Name']}'></td></tr>
+                                    <tr height='40px'><td><label><h5>Gender</h5></label></td><td><input type='text' name='fname' placeholder='{$userdata['Gender']}'></td></tr>
+                                    <tr height='40px'><td><label><h5>Driver's License</h5></label></td><td><input type='text' name='fname' placeholder='{$userdata['Licence_No']}'></td></tr>
+                                    <tr height='40px'><td><label><h5>E-mail</h5></label></td><td><input type='text' name='fname' placeholder='{$userdata['Email']}'></td></tr>
+                                    <tr height='40px'><td><label><h5>Contact No.</h5></label></td><td><input type='text' name='fname' placeholder='{$userdata['Contact_No']}'></td></tr>
+
+                                    
+                                </table>";}
+
+                ?>
+                    </fieldset>
+                </form>
+                <br>
+                <br>
+            </div>
+            <div class="col-lg-5 ">
+                <form ><fieldset  disabled="disabled" style="color: #000;">
+
+                
+                    <?php
+                    while( $row = mysqli_fetch_assoc($squ) ){
+                                    echo"
+                                <table class='pdtable'>
+                                    <h2>Report Details</h2>
+                                    <tr height='40px'><td width = '280px' ><label><h5>ID</h5></label></td><td><input type='text' name='fname' value='{$row['Rep_Id']}'></td></tr>
+                                    <tr height='40px'><td><label><h5>Cause</h5></label></td><td><input type='text' name='fname' placeholder='{$row['Cause']}'></td></tr>
+                                    <tr height='40px'><td><label><h5>Details</h5></label></td><td><input type='text' name='fname' placeholder='{$row['Details']}'></td></tr>
+                                    <tr height='40px'><td><label><h5>Date</h5></label></td><td><input type='text' name='fname' placeholder='{$row['Date_of_Acc']}'></td></tr>
+                                    <tr height='40px'><td><label><h5>Time</h5></label></td><td><input type='text' name='fname' placeholder='{$row['Time_of_Acc']}'></td></tr>
+
+                                    
+                                </table>";}
+
+                ?>
+                    </fieldset>
+                </form>
+                <br>
+                <br>
+            </div>
+        </div>
+        
+
+    
+        <br>
+        <br>
+
+    </section>
+
+</div>
+
     
     <!-- ***** Footer Start ***** -->
     <footer>

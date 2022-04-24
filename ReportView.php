@@ -146,9 +146,10 @@ CSS files
                                   if(empty($row['RDA_Id'])){
                                     $rdaid = "Pending...";
                                   }
+                                  $rid = $row['Rep_Id'];
                                 echo" 
                                 <tr class='alert' role='alert'>
-                                <th scope='row'>{$row['Rep_Id']}</th>
+                                <th scope='row'>$rid</th>
                                 <td>{$row['Cause']}</td>
                                 <td>{$row['Details']}</td>
                                 <td>{$row['Date_of_Acc']}</td>
@@ -156,15 +157,14 @@ CSS files
                                 <td>$inid</td>
                                 <td>$rdaid</td>
                                 <td width='100px'>
-                                    <!-- <a href='#' class='close' data-dismiss='alert' aria-label='Close'>
-                                  <span aria-hidden='true'><i class='fa fa-close'></i></span> -->
+                                    
   
-                                  <div class='trainer-item'>
-                                      <div >
-                                          <div class='main-button'><a href='ReportFull.php'>See More</a></div>
-                                      </div>
-                                      
-                                  </div>
+                                  <div class='main-button scroll-to-section'>
+                                  <form action='ReportFull.php' method='POST'>
+                                  <input type='hidden' name='rid' value='$rid' >
+                                    <input type='Submit' value='See More'>
+                                    </form>
+                                    </div>
   
                                 
                               </td>

@@ -112,17 +112,18 @@ CSS files
 		<p><img src="assets/img2/avatar.jpg" style="width: 150px; border-radius:75px"></p>
         <br>
 		<div id="ho2"> <h2 >My Profile</h2></div>
-		<form ><fieldset style="width:500px" disabled="disabled" style="color: #000;">
 			<br>
                                 </div>
         </div>
         <div class="col-lg-8 offset-lg-4">
+		<form ><fieldset disabled="disabled" style="color: #000;">
+
         
 			<?php
             if( !empty($userdata) ){
                 			echo"
                 		<table class='pdtable'>
-                			<tr height='40px'><td width = '280px' ><label><h5>Name</h5></label></td><td><input type='text' name='fname' placeholder='{$userdata['Name']}'></td></tr>
+                			<tr height='40px'><td width = '280px' ><label><h5>Name</h5></label></td><td><input type='text' name='fname' value='{$userdata['Name']}'></td></tr>
                 			<tr height='40px'><td><label><h5>Gender</h5></label></td><td><input type='text' name='fname' placeholder='{$userdata['Gender']}'></td></tr>
                 			<tr height='40px'><td><label><h5>Driver's License</h5></label></td><td><input type='text' name='fname' placeholder='{$userdata['Licence_No']}'></td></tr>
                             <tr height='40px'><td><label><h5>E-mail</h5></label></td><td><input type='text' name='fname' placeholder='{$userdata['Email']}'></td></tr>
@@ -132,6 +133,8 @@ CSS files
                 		</table>";}
 
         ?>
+            </fieldset>
+        </form>
         <br>
         <br>
         </div>
