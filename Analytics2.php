@@ -116,36 +116,31 @@ CSS files
         <br>
         <br>
         <br>
-        <div class="col-lg-8 offset-lg-2">
-                                      
-            <canvas id="myChart" style="width:120%;max-width:1000px"></canvas>
-            <script>
-                var xValues = ["Bad Weather", "Speeding", "Drunk-Driving", "Distractions", "Other"];
-                var yValues = [55, 49, 44, 24, 15];
-                var barColors = [
-                "#b91d47",
-                "#00aba9",
-                "#2b5797",
-                "#e8c3b9",
-                "#1e7145"
-                ];
+        <div class="col-lg-10 offset-lg-1">                          
+        <canvas id="myChart" style="width:120%;max-width:1000px"></canvas>
 
-                new Chart("myChart", {
-                type: "pie",
-                data: {
-                    labels: xValues,
-                    datasets: [{
-                    backgroundColor: barColors,
-                    data: yValues
-                    }]
-                },
-                options: {
-                    title: {
-                    display: true,
-                    text: "Causes for the Accidents To Take Place"
-                    }
+            <script>
+            var xValues = ["Car", "Bike", "Bus", "Truck", "3-Wheeler","Van"];
+            var yValues = [55, 49, 44, 24, 15];
+            var barColors = ["red", "green","blue","orange","brown"];
+
+            new Chart("myChart", {
+            type: "bar",
+            data: {
+                labels: xValues,
+                datasets: [{
+                backgroundColor: barColors,
+                data: yValues
+                }]
+            },
+            options: {
+                legend: {display: false},
+                title: {
+                display: true,
+                text: "Vehicles Met With Accidents"
                 }
-                });
+            }
+            });
             </script>
         </div>  
     </div>

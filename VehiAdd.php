@@ -143,8 +143,8 @@ CSS files
                                 <select name="Type" id="Type">
                                     <option value="Bike">Bike</option>
                                     <option value="Car">Car</option>
+                                    <option value="Bus">Bus</option>
                                     <option value="Truck">Truck</option>
-                                    <option value="Tractor">Tractor</option>
                                     <option value="3-Wheeler">3-Wheeler</option>
                                     <option value="Van">Van</option>
                                     <option value="Other">Other</option>
