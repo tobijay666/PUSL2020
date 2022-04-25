@@ -27,7 +27,7 @@ CSS files
 
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
 
-    <link rel="stylesheet" href="assets/css/testcss.css">
+    <link rel="stylesheet" href="assets/css/test2.css">
 
     </head>
     
@@ -102,31 +102,42 @@ CSS files
     </header>
     <!-- ***** Header Area End ***** -->
 
-    <!-- ***** Main Banner Area Start ***** -->
-    <div class="main-banner" id="top">
-        <video autoplay muted loop id="bg-video">
-            <source src="assets/Img2/RoadMaster.mp4" type="video/mp4" />
-        </video>
-
-        <div class="video-overlay header-text">
-            <div class="caption">
-                <h6>Reinvent Travel, <nbsp><nbsp></nbsp><nbsp> enjoy Simplicity </h6>
-                <h2> with Road <em>Master</em></h2>
-                <?php
-                                 if (isset($_SESSION['D_Id'])||isset($_SESSION['In_Id'])||isset($_SESSION['P_Id'])||isset($_SESSION['RDA_Id'])) {
-                    echo"<div class='main-button scroll-to-section'>
-                    <a href='Profile.php'>View Profile</a>
-                </div>";
-                }
-                else {echo"
-                    <div class='main-button scroll-to-section'>
-                        <a href='LoginType2.php'>Become a member</a>
-                    </div>";}
-                ?>
+    <section class="section" id="trainers">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="section-heading">
+                    <h2>View <em>Analytics</em></h2>
+                    <img src="assets/Img2/line-dec.png" alt="">
+                    <p>Click 'Create New Report' to Report an Accident. Click 'View All Reports' to check out the status of the reports you have made.</p>
+                </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-lg-3 offset-lg-3">
+                <div class="trainer-item">
+                    <div >
+                    <div class="main-button"><a href="Analytics1.php">Causes for Accidents</a></div>
+                    </div>                    
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="trainer-item">
+                    <div >
+                    <div class="main-button"><a href="Analytics2.php">Vehicles in Accidents</a></div>
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div>
+        <br>
+        <br>
+        
     </div>
-    <!-- ***** Main Banner Area End ***** -->
+</section>
+<br>
+<br>
     
     <!-- ***** Footer Start ***** -->
     <footer>
