@@ -137,16 +137,69 @@ CSS files
                                 }
                                 while( $row = mysqli_fetch_assoc($squ) )
                                 {
-                                  if(empty($row['P_Id'])){
-                                    $pid = "Pending...";
-                                  }
-                                  if(empty($row['In_Id'])){
-                                    $inid = "Pending...";
-                                  }
-                                  if(empty($row['RDA_Id'])){
-                                    $rdaid = "Pending...";
-                                  }
                                   $rid = $row['Rep_Id'];
+                                  $did = $row['Driver_Id'];
+                                  if(empty($row['P_Id'])){
+                                    $pid = 'Pending...';
+                                }
+                                else{
+                                    
+                                    $sqry2 = "SELECT * FROM rep_pol where Rep_Id ='$rid'";
+                                    if(!($squ2= mysqli_query($con,$sqry2)))
+                                    {
+                                        echo"Data retrival failed";
+                                    }
+                                    
+                                    while( $row2 = mysqli_fetch_assoc($squ2) )
+                                    {
+                                        
+                                        $pid = "{$row2['Status']}";
+                                        
+                                    }
+                                    
+                                    
+                                }
+                                if(empty($row['In_Id'])){
+                                    $inid = 'Pending...';
+                                }
+                                else{
+                                    
+                                    $sqry3 = "SELECT * FROM rep_in where Rep_Id ='$rid'";
+                                    if(!($squ3= mysqli_query($con,$sqry3)))
+                                    {
+                                        echo"Data retrival failed";
+                                    }
+                                    
+                                    while( $row3 = mysqli_fetch_assoc($squ3) )
+                                    {
+                                        
+                                        $inid = "{$row3['Status']}";
+                                        
+                                    }
+                                    
+                                    
+                                }
+                                if(empty($row['RDA_Id'])){
+                                    $rdaid = 'Pending...';
+                                }
+                                else{
+                                    
+                                    $sqry4 = "SELECT * FROM rep_rda where Rep_Id ='$rid'";
+                                    if(!($squ4= mysqli_query($con,$sqry4)))
+                                    {
+                                        echo"Data retrival failed";
+                                    }
+                                    
+                                    while( $row4 = mysqli_fetch_assoc($squ4) )
+                                    {
+                                        
+                                        $rdaid = "{$row4['Status']}";
+                                        
+                                    }
+                                    
+                                    
+                                }
+                                  
                                 echo" 
                                 <tr class='alert' role='alert'>
                                 <th scope='row'>$rid</th>
