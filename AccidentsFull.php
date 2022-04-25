@@ -266,7 +266,7 @@ CSS files
                 <div class="trainer-item">
                     <div class ="main-button">
                     <form action="Accidents.php" method="POST">
-                        <input type="hidden" name="Auth" value="REJECT">
+                        <input type="hidden" name="Auth" value="REJECTED">
                         <input type="submit" value="REJECT">
                     </form>
                     </div>
@@ -276,10 +276,10 @@ CSS files
             <div class="col-lg-4">
                 <div class="trainer-item">
                 <div class ="main-button">
-                    <?php echo"<form action='Accidents.php' method='POST'>
-                        <input type='hidden' name='Auth' value='ACCEPT'>
-                        <input type='submit' value='ACCEPT'>";
-                        ?>
+                    <form action='Accidents.php' method='POST'>
+                        <input type='hidden' name='Auth' value='ACCEPTED'>
+                        <input type='submit' value='ACCEPT'>
+                        
                     </form>
                     </div>
                     

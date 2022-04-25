@@ -8,25 +8,32 @@
 
      if($_SERVER['REQUEST_METHOD'] == "POST"){
          $auth = $_POST['Auth'];
-         echo"worlk1";
+         
             if(!empty($auth)){
-                echo"worlk2",$auth;
+                
                 $date = date('Y-m-d');
                 if(isset($_SESSION['P_Id']))
                 {
-                    echo"worlk3".$_SESSION['Report_ID'];
+                    
                     $qry1 = "Update report SET P_Id = '{$userdata['P_Id']}' Where Rep_Id ='{$_SESSION['Report_ID']}'";
                     mysqli_query($con, $qry1);
                     
                     $pqry1 = "INsert INTO rep_pol (Rep_Id,P_Id,date,Status) Values ('{$_SESSION['Report_ID']}','{$userdata['P_Id']}','$date','$auth')";
+                    mysqli_query($con, $pqry1);
                 }
                 else if(isset($_SESSION['In_Id']))
                 {$qry2 = "Update report SET In_Id = '{$userdata['In_Id']}' Where Rep_Id ='{$_SESSION['Report_ID']}'";
                 mysqli_query($con, $qry2);
+                
+                $pqry2 = "INsert INTO rep_in (Rep_Id,P_Id,date,Status) Values ('{$_SESSION['Report_ID']}','{$userdata['In_Id']}','$date','$auth')";
+                mysqli_query($con, $pqry2);
             }
                 else if(isset($_SESSION['RDA_Id']))
                 {$qry3 = "Update report SET RDA_Id = '{$userdata['RDA_Id']}' Where Rep_Id ='{$_SESSION['Report_ID']}'";
                 mysqli_query($con, $qry3);
+                
+                $pqry3 = "INsert INTO rep_rda (Rep_Id,RDA_Id,date,Status) Values ('{$_SESSION['Report_ID']}','{$userdata['RDA_Id']}','$date','$auth')";
+                mysqli_query($con, $pqry3);
             }
                
 
@@ -180,65 +187,97 @@ CSS files
                                 }
                                 while( $row = mysqli_fetch_assoc($squ) )
                                 {
-                                    $rid = $row['Rep_Id'];
-                                    $did = $row['Driver_Id'];
-                                  if(empty($row['P_Id'])){
-                                    $pid = 'Pending...';
-                                  }
-                                  else{
-                                    echo"walk4";
-                                    $sqry2 = "SELECT * FROM rep_pol where Rep_Id ='$rid'";
-                                    if(!($squ2= mysqli_query($con,$sqry2)))
-                                    {
-                                        echo"Data retrival failed";
-                                    }
-                                    while( $row2 = mysqli_fetch_assoc($squ2) )
-                                    {
-                                        echo"walk4";
-                                        $pid = "{$row2['Status']}";
-                                        echo  "{$row2['Status']}";
-                                    }
-                                  }
-                                  if(empty($row['In_Id'])){
-                                    $inid = 'Pending...';
-                                  }
-                                  else{
-                                    $inid =$row['In_Id'];
-                                  }
-                                  if(empty($row['RDA_Id'])){
-                                    $rdaid = 'Pending...';
-                                  }
-                                  else{
-                                    $rdaid =$row['RDA_Id'];
-                                  }
-                                  
+                                            $rid = $row['Rep_Id'];
+                                            $did = $row['Driver_Id'];
+                                        if(empty($row['P_Id'])){
+                                            $pid = 'Pending...';
+                                        }
+                                        else{
+                                            
+                                            $sqry2 = "SELECT * FROM rep_pol where Rep_Id ='$rid'";
+                                            if(!($squ2= mysqli_query($con,$sqry2)))
+                                            {
+                                                echo"Data retrival failed";
+                                            }
+                                            
+                                            while( $row2 = mysqli_fetch_assoc($squ2) )
+                                            {
+                                                
+                                                $pid = "{$row2['Status']}";
+                                                
+                                            }
+                                            
+                                            
+                                        }
+                                        if(empty($row['In_Id'])){
+                                            $inid = 'Pending...';
+                                        }
+                                        else{
+                                            
+                                            $sqry3 = "SELECT * FROM rep_in where Rep_Id ='$rid'";
+                                            if(!($squ3= mysqli_query($con,$sqry3)))
+                                            {
+                                                echo"Data retrival failed";
+                                            }
+                                            
+                                            while( $row3 = mysqli_fetch_assoc($squ3) )
+                                            {
+                                                
+                                                $inid = "{$row3['Status']}";
+                                                
+                                            }
+                                            
+                                            
+                                        }
+                                        if(empty($row['RDA_Id'])){
+                                            $rdaid = 'Pending...';
+                                        }
+                                        else{
+                                            
+                                            $sqry4 = "SELECT * FROM rep_rda where Rep_Id ='$rid'";
+                                            if(!($squ4= mysqli_query($con,$sqry4)))
+                                            {
+                                                echo"Data retrival failed";
+                                            }
+                                            
+                                            while( $row4 = mysqli_fetch_assoc($squ4) )
+                                            {
+                                                
+                                                $rdaid = "{$row4['Status']}";
+                                                
+                                            }
+                                            
+                                            
+                                        }
+                                        
 
-                                echo" 
-                                <tr class='alert' role='alert'>
-                                <th scope='row'>$rid</th>
-                                <td>{$row['Cause']}</td>
-                                <td>{$row['Details']}</td>
-                                <td>{$row['Date_of_Acc']}</td>
-                                <td>$pid</td>
-                                <td>$inid</td>
-                                <td>$rdaid</td>
-                                <td width='100px'>
+                                        echo" 
+                                        <tr class='alert' role='alert'>
+                                        <th scope='row'>$rid</th>
+                                        <td>{$row['Cause']}</td>
+                                        <td>{$row['Details']}</td>
+                                        <td>{$row['Date_of_Acc']}</td>
+                                        <td>$pid</td>
+                                        <td>$inid</td>
+                                        <td>$rdaid</td>
+                                        <td width='100px'>
+                                            
+        
+                                        <div class='main-button scroll-to-section'>
+                                        <form action='AccidentsFull.php' method='POST'>
+                                        <input type='hidden' name='rid' value='$rid' >
+                                        <input type='hidden' name='did' value='$did' >
+                                            <input type='Submit' value='See More'>
+                                            </form>
+                                            </div>
+        
+                                        
+                                    </td>
+                                        
+        
+                                        
+                                    </tr>";
                                     
-  
-                                  <div class='main-button scroll-to-section'>
-                                  <form action='AccidentsFull.php' method='POST'>
-                                  <input type='hidden' name='rid' value='$rid' >
-                                  <input type='hidden' name='did' value='$did' >
-                                    <input type='Submit' value='See More'>
-                                    </form>
-                                    </div>
-  
-                                
-                              </td>
-                                
-  
-                                
-                              </tr>";
                                 }
                                 
 
