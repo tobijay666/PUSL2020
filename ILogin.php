@@ -26,9 +26,9 @@
 
                         $user_data = mysqli_fetch_assoc($result);
                         
-                        if($user_data['U_Id'])
+                        if($user_data['User_Id'])
                         {
-                            $UID = $user_data['U_Id'];
+                            $UID = $user_data['User_Id'];
                             //read from database
                             $query2 = "select * from user where U_ID = '$UID' limit 1";
                             $result2 = mysqli_query($con, $query2);
@@ -41,7 +41,7 @@
                                     
                                     if($user_data2['Password'] === $password)
                                     {
-                                        $_SESSION['U_Id'] = $user_data2['U_Id'];
+                                        $_SESSION['User_Id'] = $user_data2['User_Id'];
                                         $_SESSION['In_Id'] = $user_data['In_Id'];
                                         header("Location: home.php");
                                   

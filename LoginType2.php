@@ -32,10 +32,6 @@
                     header("Location: ILogin.php");
                     die;
                 }
-                elseif($type === "Master"){
-                    header("Location: MLogin.php");
-                    die;
-                }
                 
                 
             }
@@ -164,7 +160,6 @@ CSS files
                                             <option value="Police">Police</option>
                                             <option value="Insurance">Insurance</option>
                                             <option value="rda">RDA</option>
-                                            <option value="Master">Master</option>
 
                                             
                                         </select>
