@@ -28,7 +28,7 @@ CSS files
 
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
 
-    <link rel="stylesheet" href="assets/css/testcss.css">
+    <link rel="stylesheet" href="assets/css/test2.css">
 
     </head>
     
@@ -69,20 +69,20 @@ CSS files
                                     ";
                                 }
                                 else if(isset($_SESSION['P_Id'])){echo"
-                                    <li class='scroll-to-section'><a href='#rep' >Accidents</a></li>
+                                    <li class='scroll-to-section'><a href='Accidents.php' >Accidents</a></li>
                                     <li class='scroll-to-section'><a href='#rep' >Analytics</a></li>
                                     <li class='scroll-to-section'><a href='#pro' >Profile</a></li>
                                     <li class='main-button'><a href='logout.php'>Log Out</a></li>
                                     ";
                                 }
                                 else if(isset($_SESSION['In_Id'])){echo"
-                                    <li class='scroll-to-section'><a href='#rep' >Accidents</a></li>
+                                    <li class='scroll-to-section'><a href='Accidents.php' >Accidents</a></li>
                                     <li class='scroll-to-section'><a href='#pro' >Profile</a></li>
                                     <li class='main-button'><a href='logout.php'>Log Out</a></li>
                                     ";
                                 }
                                 else if(isset($_SESSION['RDA_Id'])){echo"
-                                    <li class='scroll-to-section'><a href='#rep' >Accidents</a></li>
+                                    <li class='scroll-to-section'><a href='Accidents.php' >Accidents</a></li>
                                     <li class='scroll-to-section'><a href='#pro' >Profile</a></li>
                                     <li class='main-button'><a href='logout.php'>Log Out</a></li>
                                     ";
@@ -103,31 +103,110 @@ CSS files
     </header>
     <!-- ***** Header Area End ***** -->
 
-    <!-- ***** Main Banner Area Start ***** -->
-    <div class="main-banner" id="top">
-        <video autoplay muted loop id="bg-video">
-            <source src="assets/Img2/RoadMaster.mp4" type="video/mp4" />
-        </video>
-
-        <div class="video-overlay header-text">
-            <div class="caption">
-                <h6>Reinvent Travel, <nbsp><nbsp></nbsp><nbsp> enjoy Simplicity </h6>
-                <h2> with Road <em>Master</em></h2>
-                <?php
-                                if(!(isset($_SESSION['D_Id']))){echo"
-                <div class='main-button scroll-to-section'>
-                    <a href='LoginType2.php'>Become a member</a>
-                </div>";}
-                else if (isset($_SESSION['D_Id'])) {
-                    echo"<div class='main-button scroll-to-section'>
-                    <a href='Profile.php'>View Profile</a>
-                </div>";
-                }
-                ?>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="section-heading">
+                    <h2>Report <em>Details</em></h2>
+                    <img src="assets/Img2/line-dec.png" alt="">
+                    <p>List of all of the Reports Drivers Have Made and Their Status of Acceptance.</p>
+                </div>
             </div>
         </div>
     </div>
-    <!-- ***** Main Banner Area End ***** -->
+<nobr></nobr>
+<section class="ftco-section">
+		<div class="container" style="margin-top:-100px;">
+			
+			<div class="row">
+				<div class="col-md-12">
+					<div class="table-wrap">
+						<table class="table">
+						  <thead class="thead-dark">
+						    <tr>
+						      <th width='100px'>Report ID</th>
+						      <th width='150px'>Cause</th>
+						      <th width='200px'>Details</th>
+						      <th width='200px'>Date</th>
+						      <th>Police Status</th>
+                                <th>Insurance Status</th>
+						      <th>RDA Status</th>
+						      <th>&nbsp;</th>
+
+						    </tr>
+						  </thead>
+						  <tbody>
+                              <?php
+                                //$Did = $userdata['Driver_Id'];
+                                $sqry="SELECT * FROM report ";
+
+                                if(!($squ= mysqli_query($con,$sqry)))
+                                {
+                                    echo"Data retrival failed";
+                                }
+                                while( $row = mysqli_fetch_assoc($squ) )
+                                {
+                                  if(empty($row['P_Id'])){
+                                    $pid = "Pending...";
+                                  }
+                                  if(empty($row['In_Id'])){
+                                    $inid = "Pending...";
+                                  }
+                                  if(empty($row['RDA_Id'])){
+                                    $rdaid = "Pending...";
+                                  }
+                                  $rid = $row['Rep_Id'];
+                                  $did = $row['Driver_Id'];
+
+                                echo" 
+                                <tr class='alert' role='alert'>
+                                <th scope='row'>$rid</th>
+                                <td>{$row['Cause']}</td>
+                                <td>{$row['Details']}</td>
+                                <td>{$row['Date_of_Acc']}</td>
+                                <td>$pid</td>
+                                <td>$inid</td>
+                                <td>$rdaid</td>
+                                <td width='100px'>
+                                    
+  
+                                  <div class='main-button scroll-to-section'>
+                                  <form action='ReportFull.php' method='POST'>
+                                  <input type='hidden' name='rid' value='$rid' >
+                                  <input type='hidden' name='did' value='$did' >
+                                    <input type='Submit' value='See More'>
+                                    </form>
+                                    </div>
+  
+                                
+                              </td>
+                                
+  
+                                
+                              </tr>";
+                                }
+                                
+
+                              ?>
+						    
+						    
+						  </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+        <br>
+        <br>
+            <div class="col-lg-2 offset-lg-9">
+                <div class="trainer-item">
+                    <div >
+                    <div class="main-button"><a href="ReportMain.php">Go Back</a></div>
+                    </div>
+                    
+                </div>
+            
+	</section>
     
     <!-- ***** Footer Start ***** -->
     <footer>

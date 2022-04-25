@@ -114,7 +114,6 @@ function check_login($con)
 		}
 	}
 
-
 }
 
 function User_data($con)

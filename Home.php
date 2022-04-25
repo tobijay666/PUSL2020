@@ -68,20 +68,20 @@ CSS files
                                     ";
                                 }
                                 else if(isset($_SESSION['P_Id'])){echo"
-                                    <li class='scroll-to-section'><a href='#rep' >Accidents</a></li>
+                                    <li class='scroll-to-section'><a href='Accidents.php' >Accidents</a></li>
                                     <li class='scroll-to-section'><a href='#rep' >Analytics</a></li>
                                     <li class='scroll-to-section'><a href='#pro' >Profile</a></li>
                                     <li class='main-button'><a href='logout.php'>Log Out</a></li>
                                     ";
                                 }
                                 else if(isset($_SESSION['In_Id'])){echo"
-                                    <li class='scroll-to-section'><a href='#rep' >Accidents</a></li>
+                                    <li class='scroll-to-section'><a href='Accidents.php' >Accidents</a></li>
                                     <li class='scroll-to-section'><a href='#pro' >Profile</a></li>
                                     <li class='main-button'><a href='logout.php'>Log Out</a></li>
                                     ";
                                 }
                                 else if(isset($_SESSION['RDA_Id'])){echo"
-                                    <li class='scroll-to-section'><a href='#rep' >Accidents</a></li>
+                                    <li class='scroll-to-section'><a href='Accidents.php' >Accidents</a></li>
                                     <li class='scroll-to-section'><a href='#pro' >Profile</a></li>
                                     <li class='main-button'><a href='logout.php'>Log Out</a></li>
                                     ";

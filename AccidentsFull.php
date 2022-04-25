@@ -4,6 +4,8 @@
      include("connection.php");
      include("functions.php");
      $userdata=check_login($con);
+     $userdata2 = User_data($con);
+
      
 
      if($_SERVER['REQUEST_METHOD'] == "POST"){
