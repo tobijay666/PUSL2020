@@ -62,7 +62,7 @@ function check_login($con)
 			$user_data = mysqli_fetch_assoc($result);
 			if($user_data)
 			{
-				$UID = $user_data['User_Id'];
+				$UID = $user_data['U_Id'];
 				//read from database
 				$query2 = "select * from user where U_ID = '$UID' limit 1";
 				$result2 = mysqli_query($con, $query2);
@@ -163,7 +163,7 @@ function User_data($con)
 			$user_data = mysqli_fetch_assoc($result);
 			if($user_data)
 			{
-				$UID = $user_data['User_Id'];
+				$UID = $user_data['U_Id'];
 				//read from database
 				$query2 = "select * from user where U_ID = '$UID' limit 1";
 				$result2 = mysqli_query($con, $query2);

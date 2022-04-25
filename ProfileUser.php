@@ -182,25 +182,7 @@ CSS files
         </div>
         
 
-    <div class="row">
-            <div class="col-lg-4 offset-lg-3">
-                <div class="trainer-item">
-                    <div >
-                    <div class="main-button"><a href="VehiView.php">View Vehicle Details</a></div>
-                    </div>
-                    
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="trainer-item">
-                    <div >
-                    <div class="main-button"><a href="VehiEdit.php">Edit Vehicle Details</a></div>
-                    </div>
-                    
-                </div>
-            </div>
 
-        </div>
         <br>
         <br>
 
