@@ -116,10 +116,10 @@ CSS files
         <br>
         <br>
         <br>
-        <div class="col-lg-6 offset-lg-3">                          
+        <div class="col-lg-8 offset-lg-2">                          
             <canvas id="myChart" style="width:120%;max-width:1000px"></canvas>
             <script>
-                var xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
+                var xValues = ["Bad Weather", "Speeding", "Drun-Driving", "Distractions", "Other"];
                 var yValues = [55, 49, 44, 24, 15];
                 var barColors = [
                 "#b91d47",
@@ -141,7 +141,7 @@ CSS files
                 options: {
                     title: {
                     display: true,
-                    text: "World Wide Wine Production 2018"
+                    text: "Causes For the Accidents To Take Place"
                     }
                 }
                 });
