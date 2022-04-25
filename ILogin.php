@@ -44,6 +44,7 @@
                                         $_SESSION['U_Id'] = $user_data2['U_Id'];
                                         $_SESSION['In_Id'] = $user_data['In_Id'];
                                         header("Location: home.php");
+                                  
                                         die;
                                     }
                                 }

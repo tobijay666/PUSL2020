@@ -5,6 +5,34 @@
      include("functions.php");
      $userdata = check_login($con);
      $userdata2 = User_data($con);
+
+     if($_SERVER['REQUEST_METHOD'] == "POST"){
+         $auth = $_POST['Auth'];
+         echo"worlk1";
+            if(!empty($auth)){
+                echo"worlk2",$auth;
+                $date = date('Y-m-d');
+                if(isset($_SESSION['P_Id']))
+                {
+                    echo"worlk3".$_SESSION['Report_ID'];
+                    $qry1 = "Update report SET P_Id = '{$userdata['P_Id']}' Where Rep_Id ='{$_SESSION['Report_ID']}'";
+                    mysqli_query($con, $qry1);
+                    
+                    $pqry1 = "INsert INTO rep_pol (Rep_Id,P_Id,date,Status) Values ('{$_SESSION['Report_ID']}','{$userdata['P_Id']}','$date','$auth')";
+                }
+                else if(isset($_SESSION['In_Id']))
+                {$qry2 = "Update report SET In_Id = '{$userdata['In_Id']}' Where Rep_Id ='{$_SESSION['Report_ID']}'";
+                mysqli_query($con, $qry2);
+            }
+                else if(isset($_SESSION['RDA_Id']))
+                {$qry3 = "Update report SET RDA_Id = '{$userdata['RDA_Id']}' Where Rep_Id ='{$_SESSION['Report_ID']}'";
+                mysqli_query($con, $qry3);
+            }
+               
+
+            }
+         }
+     
 ?>
 
 <!DOCTYPE html>
@@ -29,6 +57,10 @@ CSS files
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
 
     <link rel="stylesheet" href="assets/css/test2.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css" />
+    <link href="assets/css/responsive.css" rel="stylesheet" />
+
+    <link href="assets/css/style1.css" rel="stylesheet" />
 
     </head>
     
@@ -114,7 +146,9 @@ CSS files
             </div>
         </div>
     </div>
-<nobr></nobr>
+<br>
+<br>
+
 <section class="ftco-section">
 		<div class="container" style="margin-top:-100px;">
 			
@@ -146,17 +180,38 @@ CSS files
                                 }
                                 while( $row = mysqli_fetch_assoc($squ) )
                                 {
+                                    $rid = $row['Rep_Id'];
+                                    $did = $row['Driver_Id'];
                                   if(empty($row['P_Id'])){
-                                    $pid = "Pending...";
+                                    $pid = 'Pending...';
+                                  }
+                                  else{
+                                    echo"walk4";
+                                    $sqry2 = "SELECT * FROM rep_pol where Rep_Id ='$rid'";
+                                    if(!($squ2= mysqli_query($con,$sqry2)))
+                                    {
+                                        echo"Data retrival failed";
+                                    }
+                                    while( $row2 = mysqli_fetch_assoc($squ2) )
+                                    {
+                                        echo"walk4";
+                                        $pid = "{$row2['Status']}";
+                                        echo  "{$row2['Status']}";
+                                    }
                                   }
                                   if(empty($row['In_Id'])){
-                                    $inid = "Pending...";
+                                    $inid = 'Pending...';
+                                  }
+                                  else{
+                                    $inid =$row['In_Id'];
                                   }
                                   if(empty($row['RDA_Id'])){
-                                    $rdaid = "Pending...";
+                                    $rdaid = 'Pending...';
                                   }
-                                  $rid = $row['Rep_Id'];
-                                  $did = $row['Driver_Id'];
+                                  else{
+                                    $rdaid =$row['RDA_Id'];
+                                  }
+                                  
 
                                 echo" 
                                 <tr class='alert' role='alert'>
@@ -171,7 +226,7 @@ CSS files
                                     
   
                                   <div class='main-button scroll-to-section'>
-                                  <form action='ReportFull.php' method='POST'>
+                                  <form action='AccidentsFull.php' method='POST'>
                                   <input type='hidden' name='rid' value='$rid' >
                                   <input type='hidden' name='did' value='$did' >
                                     <input type='Submit' value='See More'>

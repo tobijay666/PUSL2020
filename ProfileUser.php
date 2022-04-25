@@ -6,33 +6,6 @@
      $userdata=check_login($con);
      $userdata2 = User_data($con);
 
-     
-
-     if($_SERVER['REQUEST_METHOD'] == "POST"){
-         $rid = $_POST['rid'];
-         $did = $_POST['did'];
-
-        if(!empty($rid)){
-            $qry ="SELECT * FROM report where Rep_Id = $rid";
-            if(!($squ= mysqli_query($con,$qry))){
-                echo"Data retrival failed";
-
-            }
-            $qry2 ="SELECT * FROM rep_pic where Rep_Id = $rid";
-            if(!($squ2= mysqli_query($con,$qry2))){
-                echo"Data retrival failed";
-
-            }
-            
-        }
-        if(!empty($did)){
-            $qry3="SELECT * FROM driver WHERE Driver_Id = $did";
-            if(!($squ3= mysqli_query($con,$qry3))){
-                echo"Data retrival failed";
-            }
-        }
-     }
-     
 ?>
 
 <!DOCTYPE html>
@@ -62,10 +35,6 @@ CSS files
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css" />
     <!-- Custom styles for this template -->
     <link href="assets/css/style.css" rel="stylesheet" />
-    <link href="assets/css/style3.css" rel="stylesheet" />
-
-
-
     <!-- responsive style -->
     <link href="assets/css/responsive.css" rel="stylesheet" />
 
@@ -145,56 +114,7 @@ CSS files
 <br>
 <br>
 <br>
-<br>
 
-  <div class="w3-content" style="max-width:800px">
-  <h2>Photos of the Accident:</h2>
-    <!-- <img class="mySlides" src="assets/Img2/Sl21 Ps.jpg" style="width:100%">
-    <img class="mySlides" src="assets/Img2/Sl16Ps.jpg" style="width:100%"> -->
-    <?php
-     while( $row2 = mysqli_fetch_assoc($squ2) ){
-         $src = "upload/{$row2['rep_id']}/{$row2['file_name']}";
-        echo "<img class='mySlides' src='$src' style='width:100%'>";
-     }
-    ?>
-  </div>
-  
-  <div class="w3-center">
-    <div class="w3-section">
-    <button class="w3-button w3-light-grey" onclick="plusDivs(-1)">❮ Prev</button>
-    <button class="w3-button w3-light-grey" onclick="plusDivs(1)">Next ❯</button>
-  </div>
-
-  </div>
-  
-  <script>
-  var slideIndex = 1;
-  showDivs(slideIndex);
-  
-  function plusDivs(n) {
-    showDivs(slideIndex += n);
-  }
-  
-  function currentDiv(n) {
-    showDivs(slideIndex = n);
-  }
-  
-  function showDivs(n) {
-    var i;
-    var x = document.getElementsByClassName("mySlides");
-    var dots = document.getElementsByClassName("demo");
-    if (n > x.length) {slideIndex = 1}    
-    if (n < 1) {slideIndex = x.length}
-    for (i = 0; i < x.length; i++) {
-      x[i].style.display = "none";  
-    }
-    for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" w3-red", "");
-    }
-    x[slideIndex-1].style.display = "block";  
-    dots[slideIndex-1].className += " w3-red";
-  }
-  </script>
 
 <div class="layout_padding">
 
@@ -206,89 +126,81 @@ CSS files
             <img class="img-fluid" src="images/security.jpg" alt="" />
             </div> -->
         </div>
+        <div class="col-lg-5 offset-lg-5">
+        <div class="box">
+            <br>
+            <br>
+		<p><img src="assets/img2/avatar.jpg" style="width: 150px; border-radius:75px"></p>
         <br>
-        <br>
-        <br>
-        <br>
-        <div class="row">
-            <div class="col-lg-5 offset-lg-1">
-                <form ><fieldset  disabled="disabled" style="color: #000;">
-
-                
-                    <?php
-                    while( $row4 = mysqli_fetch_assoc($squ3) ){
-                                    echo"
-                                <table class='pdtable'>
-                                    <h2>Driver Details</h2>
-                                    <tr height='40px'><td width = '280px' ><label><h5>Name</h5></label></td><td><input type='text' name='fname' value='{$row4['Name']}'></td></tr>
-                                    <tr height='40px'><td><label><h5>Gender</h5></label></td><td><input type='text' name='fname' placeholder='{$row4['Gender']}'></td></tr>
-                                    <tr height='40px'><td><label><h5>Driver's License</h5></label></td><td><input type='text' name='fname' placeholder='{$row4['Licence_No']}'></td></tr>
-                                    <tr height='40px'><td><label><h5>E-mail</h5></label></td><td><input type='text' name='fname' placeholder='{$row4['Email']}'></td></tr>
-                                    <tr height='40px'><td><label><h5>Contact No.</h5></label></td><td><input type='text' name='fname' placeholder='{$row4['Contact_No']}'></td></tr>
-
-                                    
-                                </table>";}
-
-                ?>
-                    </fieldset>
-                </form>
-                <br>
-                <br>
-            </div>
-            <div class="col-lg-5 ">
-                <form ><fieldset  disabled="disabled" style="color: #000;">
-
-                
-                    <?php
-                    while( $row = mysqli_fetch_assoc($squ) ){
-                            $_SESSION['Report_ID'] = $row['Rep_Id'];
-                                    echo"
-                                <table class='pdtable'>
-                                    <h2>Report Details</h2>
-                                    <tr height='40px'><td width = '280px' ><label><h5>ID</h5></label></td><td><input type='text' name='fname' value='{$row['Rep_Id']}'></td></tr>
-                                    <tr height='40px'><td><label><h5>Cause</h5></label></td><td><input type='text' name='fname' placeholder='{$row['Cause']}'></td></tr>
-                                    <tr height='40px'><td><label><h5>Details</h5></label></td><td><textarea  name='tex' rows='2' cols='30' placeholder='{$row['Details']}'></textarea></td></tr>
-                                    <tr height='40px'><td><label><h5>Date</h5></label></td><td><input type='text' name='fname' placeholder='{$row['Date_of_Acc']}'></td></tr>
-                                    <tr height='40px'><td><label><h5>Time</h5></label></td><td><input type='text' name='fname' placeholder='{$row['Time_of_Acc']}'></td></tr>
-
-                                    
-                                </table>";}
-
-                ?>
-                    </fieldset>
-                </form>
-                <br>
-                <br>
-            </div>
+		<div id="ho2"> <h2 >My Profile</h2></div>
+			<br>
+                                </div>
         </div>
-        <div class="row">
+        <div class="col-lg-8 offset-lg-4">
+		<form ><fieldset disabled="disabled" style="color: #000;">
+
+        
+			<?php
+            if( !empty($userdata) ){
+                			
+                if(!isset($_SESSION['In_Id'])){
+                    echo"
+                		<table class='pdtable'>
+                			<tr height='40px'><td width = '280px' ><label><h5>Name</h5></label></td><td><input type='text' name='fname' value='{$userdata2['Name']}'></td></tr>
+                			<tr height='40px'><td><label><h5>User Type</h5></label></td><td><input type='text' name='fname' placeholder='{$userdata2['User_type']}'></td></tr>
+                			<tr height='40px'><td><label><h5>Contact No</h5></label></td><td><input type='text' name='fname' placeholder='{$userdata2['Contact_no']}'></td></tr>
+                            <tr height='40px'><td><label><h5>E-mail</h5></label></td><td><input type='text' name='fname' placeholder='{$userdata2['Email']}'></td></tr>
+                            <tr height='40px'><td><label><h5>Designation</h5></label></td><td><input type='text' name='fname' placeholder='{$userdata['Designation']}'></td></tr>
+                            
+
+
+                            
+                		</table>";}
+                else{
+                    echo"
+                		<table class='pdtable'>
+                			<tr height='40px'><td width = '280px' ><label><h5>Name</h5></label></td><td><input type='text' name='fname' value='{$userdata2['Name']}'></td></tr>
+                			<tr height='40px'><td><label><h5>User Type</h5></label></td><td><input type='text' name='fname' placeholder='{$userdata2['User_type']}'></td></tr>
+                			<tr height='40px'><td><label><h5>Company</h5></label></td><td><input type='text' name='fname' placeholder='{$userdata['Company']}'></td></tr>
+                			<tr height='40px'><td><label><h5>Contact No</h5></label></td><td><input type='text' name='fname' placeholder='{$userdata2['Contact_no']}'></td></tr>
+                            <tr height='40px'><td><label><h5>E-mail</h5></label></td><td><input type='text' name='fname' placeholder='{$userdata2['Email']}'></td></tr>
+                            <tr height='40px'><td><label><h5>Designation</h5></label></td><td><input type='text' name='fname' placeholder='{$userdata['Designation']}'></td></tr>
+                            
+
+
+                            
+                		</table>";
+
+                }
+                }
+
+        ?>
+            </fieldset>
+        </form>
+        <br>
+        <br>
+        </div>
+        
+
+    <div class="row">
             <div class="col-lg-4 offset-lg-3">
                 <div class="trainer-item">
-                    <div class ="main-button">
-                    <form action="Accidents.php" method="POST">
-                        <input type="hidden" name="Auth" value="REJECT">
-                        <input type="submit" value="REJECT">
-                    </form>
+                    <div >
+                    <div class="main-button"><a href="VehiView.php">View Vehicle Details</a></div>
                     </div>
                     
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="trainer-item">
-                <div class ="main-button">
-                    <?php echo"<form action='Accidents.php' method='POST'>
-                        <input type='hidden' name='Auth' value='ACCEPT'>
-                        <input type='submit' value='ACCEPT'>";
-                        ?>
-                    </form>
+                    <div >
+                    <div class="main-button"><a href="VehiEdit.php">Edit Vehicle Details</a></div>
                     </div>
                     
                 </div>
             </div>
 
         </div>
-
-    
         <br>
         <br>
 
@@ -302,7 +214,7 @@ CSS files
       <div class="container">
           <div class="row">
               <div class="col-lg-12">
-                  <p>Copyright &copy; 2022 Travel Life - Designed by <a rel="nofollow" href="Home.php" class="tm-text-link" >Travel Team</a></p>
+                  <p>Copyright &copy; 2020 Travel Life - Designed by <a rel="nofollow" href="Home.php" class="tm-text-link" >Travel Team</a></p>
 
                   
               </div>
