@@ -153,8 +153,7 @@ CSS files
             </div>
         </div>
     </div>
-<br>
-<br>
+
 
 <section class="ftco-section">
 		<div class="container" style="margin-top:-100px;">
