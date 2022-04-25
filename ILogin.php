@@ -41,7 +41,8 @@
                                     
                                     if($user_data2['Password'] === $password)
                                     {
-                                        $_SESSION['User_Id'] = $user_data2['User_Id'];
+                                        // $_SESSION['User_Id'] = $user_data2['User_Id'];
+                                        $_SESSION['U_Id'] = $user_data2['U_Id'];
                                         $_SESSION['In_Id'] = $user_data['In_Id'];
                                         header("Location: home.php");
                                   

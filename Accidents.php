@@ -25,7 +25,7 @@
                 {$qry2 = "Update report SET In_Id = '{$userdata['In_Id']}' Where Rep_Id ='{$_SESSION['Report_ID']}'";
                 mysqli_query($con, $qry2);
                 
-                $pqry2 = "INsert INTO rep_in (Rep_Id,P_Id,date,Status) Values ('{$_SESSION['Report_ID']}','{$userdata['In_Id']}','$date','$auth')";
+                $pqry2 = "INsert INTO rep_in (Rep_Id,In_Id,date,Status) Values ('{$_SESSION['Report_ID']}','{$userdata['In_Id']}','$date','$auth')";
                 mysqli_query($con, $pqry2);
             }
                 else if(isset($_SESSION['RDA_Id']))

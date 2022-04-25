@@ -3,7 +3,7 @@
 
      include("connection.php");
      include("functions.php");
-     check_login($con);
+     //check_login($con);
 ?>
 
 <!DOCTYPE html>
