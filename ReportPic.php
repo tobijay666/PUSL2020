@@ -190,7 +190,7 @@ CSS files
                       <!-- ***** Logo End ***** -->
                       <!-- ***** Menu Start ***** -->
                       <ul class="nav">
-                            <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+                            <li class="scroll-to-section"><a href="home.php">Home</a></li>
                             
                             <?php
                                 if(!(isset($_SESSION['D_Id']))){echo"
