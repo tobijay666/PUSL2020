@@ -78,20 +78,20 @@ CSS files
                                 }
                                 else if(isset($_SESSION['P_Id'])){echo"
                                     <li class='scroll-to-section'><a href='Accidents.php' >Accidents</a></li>
-                                    <li class='scroll-to-section'><a href='#rep' >Analytics</a></li>
-                                    <li class='scroll-to-section'><a href='#pro' >Profile</a></li>
+                                    <li class='scroll-to-section'><a href='AnalyticsMain.php' >Analytics</a></li>
+                                    <li class='scroll-to-section'><a href='profileuser.php'  class='active'>Profile</a></li>
                                     <li class='main-button'><a href='logout.php'>Log Out</a></li>
                                     ";
                                 }
                                 else if(isset($_SESSION['In_Id'])){echo"
                                     <li class='scroll-to-section'><a href='Accidents.php' >Accidents</a></li>
-                                    <li class='scroll-to-section'><a href='#pro' >Profile</a></li>
-                                    <li class='main-button'><a href='logout.php'>Log Out</a></li>
+                                    <li class='scroll-to-section'><a href='profileuser.php'  class='active'>Profile</a></li>
+                                    <li class='main-button'><a href='logout.php' >Log Out</a></li>
                                     ";
                                 }
                                 else if(isset($_SESSION['RDA_Id'])){echo"
                                     <li class='scroll-to-section'><a href='Accidents.php' >Accidents</a></li>
-                                    <li class='scroll-to-section'><a href='#pro' >Profile</a></li>
+                                    <li class='scroll-to-section'><a href='profileuser.php'  class='active'>Profile</a></li>
                                     <li class='main-button'><a href='logout.php'>Log Out</a></li>
                                     ";
                                 }
@@ -196,7 +196,7 @@ CSS files
       <div class="container">
           <div class="row">
               <div class="col-lg-12">
-                  <p>Copyright &copy; 2020 Travel Life - Designed by <a rel="nofollow" href="Home.php" class="tm-text-link" >Travel Team</a></p>
+                  <p>Copyright &copy; 2022 Travel Life - Designed by <a rel="nofollow" href="Home.php" class="tm-text-link" >Code Brigade</a></p>
 
                   
               </div>

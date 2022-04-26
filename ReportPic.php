@@ -198,8 +198,8 @@ CSS files
                                     <li class='main-button'><a href='Login.php'>Log In</a></li>";
                                 }
                                 else{echo"
-                                    <li class='scroll-to-section'><a href='#rep' >Report</a></li>
-                                    <li class='scroll-to-section'><a href='#pro' >Profile</a></li>
+                                    <li class='scroll-to-section'><a href='ReportMain.php' class='active'>Report</a></li>
+                                    <li class='scroll-to-section'><a href='profile.php' >Profile</a></li>
                                     <li class='main-button'><a href='logout.php'>Log Out</a></li>";}
                                 ?>
                             
@@ -283,11 +283,8 @@ CSS files
       <div class="container">
           <div class="row">
               <div class="col-lg-12">
-                  <p>Copyright &copy; 2020 Road Master
-                  
-                  - Designed by <a rel="nofollow" href="Home.php" class="tm-text-link" >Code Brigade</a></p>
-
-                  
+              <p>Copyright &copy; 2022 Road Master - Designed by <a rel="nofollow" href="Home.php" class="tm-text-link" >Code Brigade</a></p>
+                 
               </div>
           </div>
       </div>

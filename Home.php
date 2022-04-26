@@ -113,9 +113,14 @@ CSS files
                 <h6>Reinvent Travel, <nbsp><nbsp></nbsp><nbsp> enjoy Simplicity </h6>
                 <h2> with Road <em>Master</em></h2>
                 <?php
-                                 if (isset($_SESSION['D_Id'])||isset($_SESSION['In_Id'])||isset($_SESSION['P_Id'])||isset($_SESSION['RDA_Id'])) {
+                                 if (isset($_SESSION['D_Id'])) {
                     echo"<div class='main-button scroll-to-section'>
                     <a href='Profile.php'>View Profile</a>
+                </div>";
+                }
+                else if (isset($_SESSION['In_Id'])||isset($_SESSION['P_Id'])||isset($_SESSION['RDA_Id'])) {
+                    echo"<div class='main-button scroll-to-section'>
+                    <a href='ProfileUser.php'>View Profile</a>
                 </div>";
                 }
                 else {echo"

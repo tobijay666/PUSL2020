@@ -94,7 +94,7 @@ CSS files
                       <!-- ***** Logo End ***** -->
                       <!-- ***** Menu Start ***** -->
                       <ul class="nav">
-                            <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+                            <li class="scroll-to-section"><a href="home.php" class="active">Home</a></li>
                             
                             <?php
                                 if(!(isset($_SESSION['D_Id']))){echo"
@@ -246,9 +246,7 @@ CSS files
       <div class="container">
           <div class="row">
               <div class="col-lg-12">
-                  <p>Copyright &copy; 2020 Road Master
-                  
-                  - Designed by <a rel="nofollow" href="Home.php" class="tm-text-link" >Code Brigade</a></p>
+              <p>Copyright &copy; 2022 Road Master - Designed by <a rel="nofollow" href="Home.php" class="tm-text-link" >Code Brigade</a></p>
 
                   
               </div>

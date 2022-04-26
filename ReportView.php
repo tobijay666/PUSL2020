@@ -76,8 +76,8 @@ CSS files
                                     <li class='main-button'><a href='Login.php'>Log In</a></li>";
                                 }
                                 else{echo"
-                                    <li class='scroll-to-section'><a href='ReportMain.php' >Report</a></li>
-                                    <li class='scroll-to-section'><a href='profile.php' class='active'>Profile</a></li>
+                                    <li class='scroll-to-section'><a href='ReportMain.php' class='active'>Report</a></li>
+                                    <li class='scroll-to-section'><a href='profile.php' >Profile</a></li>
                                     <li class='main-button'><a href='logout.php'>Log Out</a></li>";}
                                 ?>
                             
@@ -120,7 +120,7 @@ CSS files
 						      <th width='200px'>Details</th>
 						      <th width='200px'>Date</th>
 						      <th>Police Status</th>
-                  <th>Insurance Status</th>
+                              <th>Insurance Status</th>
 						      <th>RDA Status</th>
 						      <th>&nbsp;</th>
 
@@ -255,7 +255,7 @@ CSS files
       <div class="container">
           <div class="row">
               <div class="col-lg-12">
-                  <p>Copyright &copy; 2022 Travel Life - Designed by <a rel="nofollow" href="Home.php" class="tm-text-link" >Travel Team</a></p>
+              <p>Copyright &copy; 2022 Road Master - Designed by <a rel="nofollow" href="Home.php" class="tm-text-link" >Code Brigade</a></p>
 
                   
               </div>

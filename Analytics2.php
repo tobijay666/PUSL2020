@@ -62,7 +62,7 @@ CSS files
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+                            <li class="scroll-to-section"><a href="home.php" class="active">Home</a></li>
                             
                             <?php
                                 if(isset($_SESSION['D_Id'])){echo"
@@ -73,13 +73,13 @@ CSS files
                                 }
                                 else if(isset($_SESSION['P_Id'])){echo"
                                     <li class='scroll-to-section'><a href='Accidents.php' >Accidents</a></li>
-                                    <li class='scroll-to-section'><a href='AnalyticsMain.php' >Analytics</a></li>
+                                    <li class='scroll-to-section'><a href='AnalyticsMain.php' class='active' >Analytics</a></li>
                                     <li class='scroll-to-section'><a href='profileuser.php' >Profile</a></li>
                                     <li class='main-button'><a href='logout.php'>Log Out</a></li>
                                     ";
                                 }
                                 else if(isset($_SESSION['In_Id'])){echo"
-                                    <li class='scroll-to-section'><a href='Accidents.php' >Accidents</a></li>
+                                    <li class='scroll-to-section'><a href='Accidents.php'  >Accidents</a></li>
                                     <li class='scroll-to-section'><a href='profileuser.php' >Profile</a></li>
                                     <li class='main-button'><a href='logout.php'>Log Out</a></li>
                                     ";

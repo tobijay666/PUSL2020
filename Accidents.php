@@ -98,7 +98,7 @@ CSS files
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+                            <li class="scroll-to-section"><a href="home.php" >Home</a></li>
                             
                             <?php
                                 if(isset($_SESSION['D_Id'])){echo"
@@ -108,21 +108,21 @@ CSS files
                                     ";
                                 }
                                 else if(isset($_SESSION['P_Id'])){echo"
-                                    <li class='scroll-to-section'><a href='Accidents.php' >Accidents</a></li>
-                                    <li class='scroll-to-section'><a href='#rep' >Analytics</a></li>
-                                    <li class='scroll-to-section'><a href='#pro' >Profile</a></li>
+                                    <li class='scroll-to-section'><a href='Accidents.php' class='active'>Accidents</a></li>
+                                    <li class='scroll-to-section'><a href='AnalyticsMain.php' >Analytics</a></li>
+                                    <li class='scroll-to-section'><a href='profileuser.php' >Profile</a></li>
                                     <li class='main-button'><a href='logout.php'>Log Out</a></li>
                                     ";
                                 }
                                 else if(isset($_SESSION['In_Id'])){echo"
-                                    <li class='scroll-to-section'><a href='Accidents.php' >Accidents</a></li>
-                                    <li class='scroll-to-section'><a href='#pro' >Profile</a></li>
+                                    <li class='scroll-to-section'><a href='Accidents.php' class='active' >Accidents</a></li>
+                                    <li class='scroll-to-section'><a href='profileuser.php' >Profile</a></li>
                                     <li class='main-button'><a href='logout.php'>Log Out</a></li>
                                     ";
                                 }
                                 else if(isset($_SESSION['RDA_Id'])){echo"
-                                    <li class='scroll-to-section'><a href='Accidents.php' >Accidents</a></li>
-                                    <li class='scroll-to-section'><a href='#pro' >Profile</a></li>
+                                    <li class='scroll-to-section'><a href='Accidents.php' class='active'>Accidents</a></li>
+                                    <li class='scroll-to-section'><a href='profileuser.php' >Profile</a></li>
                                     <li class='main-button'><a href='logout.php'>Log Out</a></li>
                                     ";
                                 }
@@ -294,7 +294,7 @@ CSS files
             <div class="col-lg-2 offset-lg-9">
                 <div class="trainer-item">
                     <div >
-                    <div class="main-button"><a href="ReportMain.php">Go Back</a></div>
+                    <div class="main-button"><a href="Home.php">Go Back</a></div>
                     </div>
                     
                 </div>

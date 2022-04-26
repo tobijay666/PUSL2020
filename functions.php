@@ -1,6 +1,8 @@
 <?php
 
+
 function check_login($con)
+//returns userdata which returns diver detrails and other user specific details
 {
 	//checking whether the session has an Mem_id
 	if(isset($_SESSION['D_Id']))
@@ -117,6 +119,8 @@ function check_login($con)
 }
 
 function User_data($con)
+//returns other users' ordinary details
+
 {
 	if(isset($_SESSION['RDA_Id']))
 	{
