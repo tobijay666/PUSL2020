@@ -244,7 +244,7 @@ CSS files
                                <h6> Upload Images</h6>
                             </td>
                         <td width="600px">
-                                <input type="file" name="files[]" id="file"  multiple="multiple">
+                                <input type="file" name="files[]" id="file"  multiple="multiple" style="margin-left: 100px;">
                             </td>
                         </tr>
                         
