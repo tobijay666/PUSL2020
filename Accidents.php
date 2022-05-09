@@ -12,29 +12,33 @@
             if(!empty($auth)){
                 
                 $date = date('Y-m-d');
+
                 if(isset($_SESSION['P_Id']))
                 {
-                    
                     $qry1 = "Update report SET P_Id = '{$userdata['P_Id']}' Where Rep_Id ='{$_SESSION['Report_ID']}'";
                     mysqli_query($con, $qry1);
                     
                     $pqry1 = "INsert INTO rep_pol (Rep_Id,P_Id,date,Status) Values ('{$_SESSION['Report_ID']}','{$userdata['P_Id']}','$date','$auth')";
                     mysqli_query($con, $pqry1);
                 }
+
                 else if(isset($_SESSION['In_Id']))
-                {$qry2 = "Update report SET In_Id = '{$userdata['In_Id']}' Where Rep_Id ='{$_SESSION['Report_ID']}'";
-                mysqli_query($con, $qry2);
-                
-                $pqry2 = "INsert INTO rep_in (Rep_Id,In_Id,date,Status) Values ('{$_SESSION['Report_ID']}','{$userdata['In_Id']}','$date','$auth')";
-                mysqli_query($con, $pqry2);
-            }
+                {
+                    $qry2 = "Update report SET In_Id = '{$userdata['In_Id']}' Where Rep_Id ='{$_SESSION['Report_ID']}'";
+                    mysqli_query($con, $qry2);
+                    
+                    $pqry2 = "INsert INTO rep_in (Rep_Id,In_Id,date,Status) Values ('{$_SESSION['Report_ID']}','{$userdata['In_Id']}','$date','$auth')";
+                    mysqli_query($con, $pqry2);
+                }
+
                 else if(isset($_SESSION['RDA_Id']))
-                {$qry3 = "Update report SET RDA_Id = '{$userdata['RDA_Id']}' Where Rep_Id ='{$_SESSION['Report_ID']}'";
-                mysqli_query($con, $qry3);
-                
-                $pqry3 = "INsert INTO rep_rda (Rep_Id,RDA_Id,date,Status) Values ('{$_SESSION['Report_ID']}','{$userdata['RDA_Id']}','$date','$auth')";
-                mysqli_query($con, $pqry3);
-            }
+                {
+                    $qry3 = "Update report SET RDA_Id = '{$userdata['RDA_Id']}' Where Rep_Id ='{$_SESSION['Report_ID']}'";
+                    mysqli_query($con, $qry3);
+                    
+                    $pqry3 = "INsert INTO rep_rda (Rep_Id,RDA_Id,date,Status) Values ('{$_SESSION['Report_ID']}','{$userdata['RDA_Id']}','$date','$auth')";
+                    mysqli_query($con, $pqry3);
+                }
                
 
             }
@@ -64,7 +68,7 @@ CSS files
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
 
     <link rel="stylesheet" href="assets/css/test2.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap1.css" />
     <link href="assets/css/responsive.css" rel="stylesheet" />
 
     <link href="assets/css/style1.css" rel="stylesheet" />
