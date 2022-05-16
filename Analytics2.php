@@ -116,16 +116,77 @@ CSS files
         <br>
         <br>
         <br>
-        <div class="col-lg-10 offset-lg-1">                          
-        <canvas id="myChart" style="width:120%;max-width:1000px"></canvas>
+        <div class="col-lg-10 offset-lg-1"> 
+            
+        <?php
+                $sqry="SELECT * FROM veh_rep ";
+
+                $bike=0;
+                $car=0;
+                $bus=0;
+                $truck=0;
+                $tuk=0;
+                $van=0;
+                $other=0;
+                    
+                if(!($squ= mysqli_query($con,$sqry)))
+                    {
+                        echo"Data retrival failed";
+                    }
+                while( $row = mysqli_fetch_assoc($squ) )
+                    {
+                        $Id = $row ['Vehicle_Id'];
+
+                        $sqry2="SELECT Type FROM vehicle WHERE Vehicle_Id = $Id ";
+                        if(!($squ2= mysqli_query($con,$sqry2)))
+                            {
+                                echo"Data retrival failed";
+                            }
+                        while( $row2 = mysqli_fetch_assoc($squ2) )
+                        {
+                            $vehi = $row2['Type'];
+                            switch($vehi)
+                            {
+                                    case"Bike";
+                                    $bike++;
+                                    break;
+
+                                    case"Car";
+                                    $car++;
+                                    break;
+
+                                    case"Bus";
+                                    $bus++;
+                                    break;
+
+                                    case"Truck";
+                                    $truck++;
+                                    break;
+
+                                    case"3-Wheeler";
+                                    $tuk++;
+                                    break;
+
+                                    case"Van";
+                                    $van++;
+                                    break;
+                                    
+                                    case"Other";
+                                    $other++;
+                                    break;
+                            }
+                        }
+                    }
+                    echo"
+        <canvas id='myChart' style='width:120%;max-width:1000px'></canvas>
 
             <script>
-            var xValues = ["Car", "Bike", "Bus", "Truck", "3-Wheeler","Van"];
-            var yValues = [55, 49, 44, 24, 15];
-            var barColors = ["red", "green","blue","orange","brown"];
+            var xValues = ['Car', 'Bike', 'Bus', 'Truck', '3-Wheeler','Van','Other'];
+            var yValues = [$bike, $car, $bus, $truck, $van, $other];
+            var barColors = ['red', 'green','blue','orange','brown', 'purple'];
 
-            new Chart("myChart", {
-            type: "bar",
+            new Chart('myChart', {
+            type: 'bar',
             data: {
                 labels: xValues,
                 datasets: [{
@@ -137,11 +198,12 @@ CSS files
                 legend: {display: false},
                 title: {
                 display: true,
-                text: "Vehicles Met With Accidents"
+                text: 'Vehicles Met With Accidents'
                 }
             }
             });
-            </script>
+            </script>";
+            ?>
         </div>  
     </div>
 </section>
