@@ -117,21 +117,62 @@ CSS files
         <br>
         <br>
         <div class="col-lg-8 offset-lg-2">
+            
+                <?php
+                $sqry="SELECT * FROM report ";
+                
+                    $bw = 0;
+                    $sp = 0;
+                    $dd = 0;
+                    $dis = 0;
+                    $other = 0;
+                    
+                if(!($squ= mysqli_query($con,$sqry)))
+                    {
+                        echo"Data retrival failed";
+                    }
+                while( $row = mysqli_fetch_assoc($squ) )
+                    {
+                        $cause = $row['Cause'];
+                        
+                        switch ($cause){
+                            case "Bad Weather":
+                                $bw++ ;
+                                break;
+                            case "Speeding":
+                                $sp++ ;
+                                break;
+                            case "Drunk-Driving":
+                                $dd++ ;
+                                break;
+                            case "Distractions":
+                                $dis++ ;
+                                break;
+                            case "Other":
+                                $other++ ;
+                                break;
+
+                        }
+                            
+                    }
+                
+                
+                  echo"                  
                                       
-            <canvas id="myChart" style="width:120%;max-width:1000px"></canvas>
+            <canvas id='myChart' style='width:120%;max-width:1000px'></canvas>
             <script>
-                var xValues = ["Bad Weather", "Speeding", "Drunk-Driving", "Distractions", "Other"];
-                var yValues = [55, 49, 44, 24, 15];
+                var xValues = ['Bad Weather', 'Speeding', 'Drunk-Driving', 'Distractions', 'Other'];
+                var yValues = [$bw, $sp, $dd, $dis, $other];
                 var barColors = [
-                "#b91d47",
-                "#00aba9",
-                "#2b5797",
-                "#e8c3b9",
-                "#1e7145"
+                '#b91d47',
+                '#00aba9',
+                '#2b5797',
+                '#e8c3b9',
+                '#1e7145'
                 ];
 
-                new Chart("myChart", {
-                type: "pie",
+                new Chart('myChart', {
+                type: 'pie',
                 data: {
                     labels: xValues,
                     datasets: [{
@@ -142,11 +183,12 @@ CSS files
                 options: {
                     title: {
                     display: true,
-                    text: "Causes for the Accidents To Take Place"
+                    text: 'Causes for the Accidents To Take Place'
                     }
                 }
                 });
-            </script>
+            </script>";
+            ?>
         </div>  
     </div>
 </section>
