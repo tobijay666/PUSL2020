@@ -115,7 +115,7 @@ CSS files
                                     ";
                                 }
                                 else if(isset($_SESSION['In_Id'])){echo"
-                                    <li class='scroll-to-section'><a href='Accidents.php' class='active' >Accidents</a></li>
+                                    <li class='scroll-to-section'><a href='Accidents_Ins.php' class='active' >Accidents</a></li>
                                     <li class='scroll-to-section'><a href='profileuser.php' >Profile</a></li>
                                     <li class='main-button'><a href='logout.php'>Log Out</a></li>
                                     ";

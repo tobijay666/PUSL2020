@@ -192,6 +192,7 @@ CSS files
                                 {
                                             $rid = $row['Rep_Id'];
                                             $did = $row['Driver_Id'];
+                                        
                                         if(empty($row['P_Id'])){
                                             $pid = 'Pending...';
                                         }
@@ -253,33 +254,52 @@ CSS files
                                             
                                         }
                                         
+                                    if(isset($_SESSION['In_Id']))
+                                    {    
 
-                                        echo" 
-                                        <tr class='alert' role='alert'>
-                                        <th scope='row'>$rid</th>
-                                        <td>{$row['Cause']}</td>
-                                        <td>{$row['Details']}</td>
-                                        <td>{$row['Date_of_Acc']}</td>
-                                        <td>$pid</td>
-                                        <td>$inid</td>
-                                        <td>$rdaid</td>
-                                        <td width='100px'>
+                                        $sqry5 = "SELECT * FROM veh_rep where Rep_Id = '$rid' ";
+                                        $squ5 = mysqli_query($con,$sqry5);
+
+                                        while( $row5 = mysqli_fetch_assoc($squ5) )
+                                        {
+                                            $vehid1 = "{$row5['Vehicle_Id']}";  
+                                        }
+
+                                        $sqry6 = "SELECT * FROM vehicle where Vehicle_Id ='$vehid1'";
+                                        $squ6 = mysqli_query($con,$sqry6);
+                                        while( $row6 = mysqli_fetch_assoc($squ6) )
+                                        {
+                                            $InCom = "{$row6['Insurance_Company']}";  
+                                        }
+                                        $incomuser = $userdata['Company'] . "_Insurance";
+                                        if($InCom == $incomuser)
+
+
+                                            {echo" 
+                                            <tr class='alert' role='alert'>
+                                            <th scope='row'>$rid</th>
+                                            <td>{$row['Cause']}</td>
+                                            <td>{$row['Details']}</td>
+                                            <td>{$row['Date_of_Acc']}</td>
+                                            <td>$pid</td>
+                                            <td>$inid</td>
+                                            <td>$rdaid</td>
+                                            <td width='100px'>
+                                                <div class='main-button scroll-to-section'>
+                                                    <form action='AccidentsFull.php' method='POST'>
+                                                        <input type='hidden' name='rid' value='$rid' >
+                                                        <input type='hidden' name='did' value='$did' >
+                                                        <input type='Submit' value='See More'>
+                                                    </form>
+                                                </div>
+            
                                             
-        
-                                            <div class='main-button scroll-to-section'>
-                                                <form action='AccidentsFull.php' method='POST'>
-                                                    <input type='hidden' name='rid' value='$rid' >
-                                                    <input type='hidden' name='did' value='$did' >
-                                                    <input type='Submit' value='See More'>
-                                                </form>
-                                            </div>
-        
-                                        
-                                        </td>
-                                        
-        
-                                        
-                                    </tr>";
+                                            </td>
+                                            
+            
+                                            
+                                        </tr>";}
+                                    }
                                     
                                 }
                                 
