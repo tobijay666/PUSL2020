@@ -100,7 +100,7 @@ CSS files
             <div class="col-lg-4">
                 <div class="trainer-item">
                     <div class="image-thumb">
-                        <img src="assets/Img2/Sl11.jpg" alt="">
+                        <img src="assets/Img2/addcar2.png" alt="">
                     </div>
                     <br>
 
@@ -114,7 +114,7 @@ CSS files
             <div class="col-lg-4">
                 <div class="trainer-item">
                     <div class="image-thumb">
-                        <img src="assets/Img2/Sl11.jpg" alt="">
+                        <img src="assets/Img2/editvehi.png" alt="">
                     </div>
                     <br>
 
@@ -130,7 +130,7 @@ CSS files
             <div class="col-lg-4">
                 <div class="trainer-item">
                     <div class="image-thumb">
-                        <img src="assets/Img2/Sl11.jpg" alt="">
+                        <img src="assets/Img2/deletecar.png" alt="">
                     </div>
                     <br>
                     <div class="down-content" >
