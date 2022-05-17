@@ -169,7 +169,7 @@ CSS files
                                         var key = theEvent.keyCode || theEvent.which;
                                         key = String.fromCharCode(key);
                                     }
-                                    var regex = /[0-9]/;
+                                    var regex = /[0-9]{10}/;
                                     if( !regex.test(key) ) {
                                         theEvent.returnValue = false;
                                         if(theEvent.preventDefault) theEvent.preventDefault();
@@ -251,7 +251,7 @@ CSS files
         
                         </tr>
                     </table>
-                    <a href="Login.php">Already have an account!</a>
+                    <a href="DLogin.php">Already have an account!</a>
                     </form>
                     </div>
                 </div>   

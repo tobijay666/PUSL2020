@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 25, 2022 at 11:51 PM
+-- Generation Time: May 17, 2022 at 10:56 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -20,7 +20,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `pusl2020`
 --
--- 111
+
 -- --------------------------------------------------------
 
 --
@@ -42,7 +42,8 @@ CREATE TABLE `driver` (
 --
 
 INSERT INTO `driver` (`Driver_Id`, `Password`, `Licence_No`, `Name`, `Contact_No`, `Email`, `Gender`) VALUES
-(1, 'SCH', 'C8452168', 'Sahan', 764512448, 'Scfernan@gmail.com', 'Male');
+(1, '45ef882ff6649fab400c8cbb3c62670a', 'C8452168', 'Sahan', 764512448, 'Scfernan@gmail.com', 'Male'),
+(2, 'd487dd0b55dfcacdd920ccbdaeafa351', 'D1543623', 'Fannel Perera', 748821546, 'Fannyprz@gmail.com', 'Female');
 
 -- --------------------------------------------------------
 
@@ -127,7 +128,12 @@ CREATE TABLE `report` (
 
 INSERT INTO `report` (`Rep_Id`, `Driver_Id`, `Cause`, `Details`, `Date_of_Acc`, `Time_of_Acc`, `RDA_Id`, `In_Id`, `P_Id`, `Rep_Date`) VALUES
 (23, 1, 'Bad Weather', 'Heavy Rain Blocked the View and Night', '2022-02-23', '23:28:00', NULL, '2245LKin', 'BB227895', '2022-04-25'),
-(24, 1, 'Distractions', 'I was on the phone.', '2021-12-08', '16:51:00', NULL, NULL, NULL, '2022-04-26');
+(24, 1, 'Distractions', 'I was on the phone.', '2021-12-08', '16:51:00', NULL, '2245LKin', 'BB227895', '2022-04-26'),
+(25, 1, 'Drunk-Driving', 'Friend Drove the Vehicle.', '2021-09-28', '12:51:00', 'RRX1221', NULL, NULL, '2022-04-26'),
+(26, 1, 'Bad Weather', '', '2022-04-14', '22:02:00', NULL, NULL, NULL, '2022-04-26'),
+(27, 1, 'Speeding', '', '2021-11-18', '15:44:00', NULL, NULL, NULL, '2022-04-27'),
+(28, 2, 'Bad Weather', 'Slippery road caused the bike to skid and crash', '2022-05-10', '09:22:00', NULL, NULL, 'BB227895', '2022-05-18'),
+(29, 2, 'Speeding', 'Lost Control of the bike and hit a car', '2022-02-08', '19:46:00', NULL, NULL, NULL, '2022-05-18');
 
 -- --------------------------------------------------------
 
@@ -147,7 +153,8 @@ CREATE TABLE `rep_in` (
 --
 
 INSERT INTO `rep_in` (`Rep_Id`, `In_Id`, `date`, `Status`) VALUES
-(23, '2245LKin', '2022-04-25', 'ACCEPTED');
+(23, '2245LKin', '2022-04-25', 'ACCEPTED'),
+(24, '2245LKin', '2022-04-26', 'ACCEPTED');
 
 -- --------------------------------------------------------
 
@@ -169,7 +176,23 @@ INSERT INTO `rep_pic` (`rep_id`, `file_name`) VALUES
 (23, 'Unfall-Kratzer-Gutachten-Kostenvoranschlag.jpg'),
 (24, 'collision1.jpg'),
 (24, 'fenderbender.jpg'),
-(24, 'istockphoto-175195079-612x612.jpg');
+(24, 'istockphoto-175195079-612x612.jpg'),
+(25, 'CG_02ddecd1-fimage_story.png'),
+(25, 'collision1.jpg'),
+(25, 'minor-car-accident.jpg'),
+(26, 'images (1).jpeg'),
+(26, 'IMG-20220424-WA0016.jpg'),
+(26, 'IMG-20220424-WA0018.jpg'),
+(27, 'istockphoto-1156651485-612x612.jpg'),
+(27, 'istockphoto-465663510-612x612.jpg'),
+(27, 'Unfall-Kratzer-Gutachten-Kostenvoranschlag.jpg'),
+(28, 'CG_02ddecd1-fimage_story.png'),
+(28, 'collision1.jpg'),
+(28, 'IMG-20220424-WA0018.jpg'),
+(28, 'minor-car-accident.jpg'),
+(29, 'istockphoto-1156651485-612x612.jpg'),
+(29, 'istockphoto-465663510-612x612.jpg'),
+(29, 'Unfall-Kratzer-Gutachten-Kostenvoranschlag.jpg');
 
 -- --------------------------------------------------------
 
@@ -189,7 +212,9 @@ CREATE TABLE `rep_pol` (
 --
 
 INSERT INTO `rep_pol` (`Rep_Id`, `P_Id`, `date`, `Status`) VALUES
-(23, 'BB227895', '2022-04-25', 'REJECTED');
+(23, 'BB227895', '2022-04-25', 'REJECTED'),
+(24, 'BB227895', '2022-04-26', 'ACCEPTED'),
+(28, 'BB227895', '2022-05-17', 'ACCEPTED');
 
 -- --------------------------------------------------------
 
@@ -203,6 +228,13 @@ CREATE TABLE `rep_rda` (
   `date` int(11) DEFAULT NULL,
   `Status` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `rep_rda`
+--
+
+INSERT INTO `rep_rda` (`Rep_Id`, `RDA_Id`, `date`, `Status`) VALUES
+(25, 'RRX1221', 2022, 'ACCEPTED');
 
 -- --------------------------------------------------------
 
@@ -224,9 +256,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`U_Id`, `Name`, `Contact_no`, `Email`, `Password`, `User_type`) VALUES
-(1, 'IAR Karunarathne', 748957861, 'IARkaru222@PDept.lk', '1234', 'Police'),
-(2, 'Nethmini Gajanayake', 741548823, 'NNG2245@Lkinsurance.lk', '1234', 'Insurance'),
-(3, 'Yelani LS Jayasooriya', 711746522, 'UYLSjaya@RDAuth.lk', '4567', 'RDA');
+(1, 'IAR Karunarathne', 748957861, 'IARkaru222@PDept.lk', '81dc9bdb52d04dc20036dbd8313ed055', 'Police'),
+(2, 'Nethmini Gajanayake', 741548823, 'NNG2245@Lkinsurance.lk', '81dc9bdb52d04dc20036dbd8313ed055', 'Insurance'),
+(3, 'Yelani LS Jayasooriya', 711746522, 'UYLSjaya@RDAuth.lk', '6562c5c1f33db6e05a082a88cddab5ea', 'RDA');
 
 -- --------------------------------------------------------
 
@@ -252,7 +284,10 @@ CREATE TABLE `vehicle` (
 
 INSERT INTO `vehicle` (`Vehicle_Id`, `Registration_No`, `Insurance_Company`, `Insurance_Policy_No`, `Type`, `Make`, `Model`, `Driver_Id`, `Date`) VALUES
 (1, 'NWPCAL9022', 'Janashakthi_Insurance', 'GFE75333544077', 'Car', 'Toyota', 'Aqua', 1, '2022-04-23'),
-(2, 'NWPBAP5429', 'Peoples_Insurance', 'RT7778T35643S', 'Bike', 'Honda', 'Dio', 1, '2022-04-23');
+(2, 'NWPBAP5429', 'Peoples_Insurance', 'RT7778T35643S', 'Bike', 'Honda', 'Dio', 1, '2022-04-23'),
+(4, 'NWPPD2344', 'Sri_Lanka_Insurance', 'GFE7533357766', 'Van', 'Nissan', 'Vanette', 1, '2022-04-26'),
+(5, 'NWPBBA9092', 'Sri_Lanka_Insurance', 'DF554Y7771927', 'Bike', 'Yamaha', 'ZR', 2, '2022-05-17'),
+(6, 'WPCAL7712', 'Janashakthi_Insurance', 'POI/99/35643S', 'Car', 'Toyota', 'Leaf', 2, '2022-05-17');
 
 -- --------------------------------------------------------
 
@@ -271,7 +306,13 @@ CREATE TABLE `veh_rep` (
 
 INSERT INTO `veh_rep` (`Vehicle_Id`, `Rep_Id`) VALUES
 (1, 23),
-(2, 24);
+(1, 26),
+(2, 24),
+(2, 27),
+(4, 25),
+(5, 28),
+(5, 29),
+(6, 28);
 
 --
 -- Indexes for dumped tables
@@ -369,13 +410,13 @@ ALTER TABLE `veh_rep`
 -- AUTO_INCREMENT for table `driver`
 --
 ALTER TABLE `driver`
-  MODIFY `Driver_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Driver_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `report`
 --
 ALTER TABLE `report`
-  MODIFY `Rep_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `Rep_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -387,7 +428,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `vehicle`
 --
 ALTER TABLE `vehicle`
-  MODIFY `Vehicle_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Vehicle_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables

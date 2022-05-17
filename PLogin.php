@@ -10,7 +10,8 @@
         {
             //something was posted
             $pid = $_POST['PID'];
-            $password = $_POST['password'];
+            $pass1 = $_POST['password'];
+            $password = hash('md5',$pass1);
 
             if(!empty($pid) && !empty($password) )
             {

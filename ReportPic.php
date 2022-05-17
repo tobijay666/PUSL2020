@@ -175,8 +175,8 @@ CSS files
           <span></span>
         </div>
       </div>
-    </div>
-    <!-- ***** Preloader End ***** -->
+    </div> -->
+    <!-- ***** Preloader End *****
     
     
     <!-- ***** Header Area Start ***** -->
@@ -235,6 +235,7 @@ CSS files
                                <h6> Vehicle Reg. No.</h6>
                             </td>
                             <td width="600px">
+                            
                                 <input type="text" name="VReg" placeholder="Enter Vehicle Reg. No" required>
                             </td>
                             
