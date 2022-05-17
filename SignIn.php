@@ -30,7 +30,7 @@
 
                               mysqli_query($con, $query);
 
-                              header("Location: Login.php");
+                              header("Location: DLogin.php");
                               die;
                           }else
                           {
@@ -136,7 +136,7 @@ CSS files
                                <h6> Name</h6>
                             </td>
                             <td width="500px">
-                                <input type="text" name="Name" placeholder="Enter Your Name" required>
+                                <input type="text" name="Name" placeholder="Enter Your Name" pattern="[a-zA-Z\s]{4,50}" required>
                             </td>
                         </tr>
         
@@ -182,7 +182,7 @@ CSS files
                                 <h6> NIC No</h6>
                             </td>
                             <td>
-                                <input type="text" name="NIC" placeholder="Enter Your NIC Number" required>
+                                <input type="text" name="NIC" placeholder="Enter Your NIC Number" pattern="[0-9]{8,13}[A-Z]?" required>
                             </td>
                             
                         </tr>
@@ -205,7 +205,7 @@ CSS files
                                 <h6>Driver's License Number</h6>
                             </td>
                             <td>
-                                <input type="text" name="License_no" placeholder="Enter Your Driver's License Number" required>
+                                <input type="text" name="License_no" placeholder="Enter Your Driver's License Number" pattern="\w{8}" required>
                             </td>
                         </tr>	
                 
@@ -215,7 +215,7 @@ CSS files
                                 <h6>Password</h6>
                             </td>
                             <td>
-                                <input type="password" name="password" placeholder="Enter Your Password" required id="password">
+                                <input type="password" name="password" placeholder="Enter Your Password" pattern="{6,20}" required id="password">
                             </td>
                         </tr>
                         <tr height="60px">
