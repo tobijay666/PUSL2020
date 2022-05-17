@@ -181,7 +181,7 @@ CSS files
                                <h6> Vehicle Model:</h6>
                             </td>
                             <td>
-                                <input type="text" name="Model" placeholder=" Ex: Hornet, Vezel, Leaf" required>
+                                <input type="text" name="Model" placeholder=" Ex: Hornet, Vezel, Leaf" pattern="[a-zA-Z0-9]+" required>
                             </td>
                         </tr>
         
@@ -190,7 +190,7 @@ CSS files
                                 <h6> Vehicle Registration No</h6>
                             </td>
                             <td>
-                                <input type="text" name="RegNo" placeholder=" Ex: WPBBA7689" required>
+                                <input type="text" name="RegNo" placeholder=" Ex: WPBBA7689" pattern="([A-Z]{4,6}[0-9]{4})|([A-Z]{2,3}[0-9]{2,3}-[0,9]{4})" required>
                             </td>
                         </tr>
         
@@ -217,7 +217,7 @@ CSS files
                                 <h6>Insurance Policy Number</h6>
                             </td>
                             <td>
-                                <input type="text" name="InPn" placeholder="" required>
+                                <input type="text" name="InPn" placeholder=""  required>
                             </td>
                         </tr>	
                 

@@ -17,7 +17,8 @@
           $NIC = $_POST['NIC'];
           $gender = $_POST['Gender'];
           $License_no = $_POST['License_no'];        
-          $password=$_POST['password'];
+          $pass1=$_POST['password'];
+          $password = hash('md5',$pass1);
           
 
 

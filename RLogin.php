@@ -10,7 +10,8 @@
         {
             //something was posted
             $rid = $_POST['RID'];
-            $password = $_POST['password'];
+            $pass1 = $_POST['password'];
+            $password = hash('md5',$pass1);
 
             if(!empty($rid) && !empty($password) )
             {
@@ -170,7 +171,7 @@ CSS files
                                     <h6> Insurance ID:</h6>
                                  </td>
                                  <td width="400px">
-                                     <input type="text" name="RID" placeholder="Enter Your ID" required>
+                                     <input type="text" name="RID" placeholder="Enter Your ID" pattern="[A-Za-z0-9]+" required>
                                  </td>
                             </tr>
                             <tr height="60px">
